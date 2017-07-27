@@ -6,6 +6,9 @@
     "react-app"
   ],
   "description": "Create React NKIA apps with no build configuration.",
+  "scripts": {
+    "start": "webpack-dev-server --config ./config/webpack.dev.config.js --open"
+  },
   "repository": "nkiateam/create-react-nkia-app",
   "license": "BSD 3-Clause",
   "engines": {

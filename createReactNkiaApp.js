@@ -206,10 +206,10 @@ function checkNpmVersion() {
 }
 
 function run(appPath, appName, originalDirectory, template, useYarn) {
-  // const allDependencies = ['react', 'react-dom'];
-  // const allDevDependencies = ['webpack', 'webpack-dev-server', 'html-loader', 'json-loader', 'style-loader', 'url-loader'];
+  // const allDependencies = ['react', 'react-dom', 'axios', 'lodash'];
+  // const allDevDependencies = ['webpack', 'webpack-dev-server', 'html-loader', 'json-loader', 'style-loader', 'url-loader', 'eslint', 'eslint-plugin-react'];
   const allDependencies = ['react'];
-  const allDevDependencies = ['webpack'];
+  const allDevDependencies = ['eslint'];
 
   console.log('Installing packages. This might take a couple minutes.');
   checkIfOnline(useYarn)
@@ -283,6 +283,25 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
     })
     .then(() => {
       console.log(`${chalk.cyan('template')} is copied`);
+
+      console.log(`Coping ${chalk.cyan('config')}...`);
+      console.log();
+
+      // config
+      const configPath = path.resolve(originalDirectory, 'config');
+      if(fs.existsSync(configPath)) {
+        // console.log(`appPath is ${appPath}`);
+        fs.copySync(configPath, appPath);
+      }else {
+        console.error(
+          `Could not locate supplied template: ${chalk.green(configPath)}`
+        );
+        return;
+      }
+
+    })
+    .then(() => {
+      console.log(`${chalk.cyan('config')} is copied`);
     })
 }
 

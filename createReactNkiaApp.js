@@ -73,6 +73,7 @@ console.log('program.scriptsVersion: %s', program.scriptsVersion);
 
 // C:\Users\user\AppData\Roaming\npm\node_modules\create-react-app 디렉토리에 createReactApp.js 참고하면서 개발하자
 // node .\create-react-app.js 프로젝트명
+// node .\index.js 프로젝트명
 createApp(projectName);
 
 function createApp(name) {
@@ -100,7 +101,7 @@ function createApp(name) {
     description: '',
     scripts: {
       build: 'webpack',
-      start: 'webpack-dev-server'
+      start: 'webpack-dev-server --config ./webpack.dev.config.js --open'
     },
     author: 'NKIA',
   };
@@ -206,10 +207,10 @@ function checkNpmVersion() {
 }
 
 function run(appPath, appName, originalDirectory, template, useYarn) {
-  // const allDependencies = ['react', 'react-dom', 'axios', 'lodash'];
-  // const allDevDependencies = ['webpack', 'webpack-dev-server', 'html-loader', 'json-loader', 'style-loader', 'url-loader', 'eslint', 'eslint-plugin-react'];
-  const allDependencies = ['react'];
-  const allDevDependencies = ['eslint'];
+  const allDependencies = ['react', 'react-dom', 'axios', 'lodash'];
+  const allDevDependencies = ['webpack', 'webpack-dev-server', 'html-loader', 'json-loader', 'style-loader', 'url-loader', 'eslint', 'eslint-plugin-react'];
+  // const allDependencies = ['react'];
+  // const allDevDependencies = ['eslint'];
 
   console.log('Installing packages. This might take a couple minutes.');
   checkIfOnline(useYarn)

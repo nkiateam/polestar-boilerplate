@@ -3,15 +3,12 @@ const path = require('path');
 
 module.exports = {
 	entry: {
-		'react-kendo-ui': './src/index.js',
-        'app.bundle': './examples/src/index.js'
+		app: './src/index.js'
 	},
 	output: {
         filename: '[name].js',
-		path: path.resolve(__dirname, 'examples', 'build'),
-        publicPath: '/examples/build',
-		library: 'K',
-		libraryTarget: 'umd'
+		path: path.resolve(__dirname, 'build'),
+        publicPath: '/'
 	},
 	module: {
         rules: [

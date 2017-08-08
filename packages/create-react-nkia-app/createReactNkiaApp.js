@@ -12,7 +12,8 @@ const semver = require('semver');
 const packageJson = require('./package.json');
 
 let projectName;
-let templateName = 'polestar-template';
+const templateName = 'polestar-template';
+// const templatePackageJson = require('../../package.json');
 
 const program = new commander.Command(packageJson.name)
   .version(packageJson.version)
@@ -208,6 +209,10 @@ function checkNpmVersion() {
 }
 
 function run(appPath, appName, originalDirectory, template, useYarn) {
+  // const allDependencies = Object.keys(templatePackageJson.dependencies);
+  // const allDevDependencies = Object.keys(templatePackageJson.devDependencies);
+  // allDevDependencies.push(templateName);
+  
   const allDependencies = ['react', 'react-dom', 'axios', 'lodash'];
   const allDevDependencies = [templateName, 
                               'babel-core', 'babel-loader', 'babel-preset-es2015', 'babel-preset-react',

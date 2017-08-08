@@ -1,0 +1,22 @@
+{
+  "name": "polestar-template",
+  "version": "0.0.4",
+  "keywords": [
+    "polestar",
+    "polestar-app",
+    "polestar-app-template",
+    "polestar-template"
+  ],
+  "description": "NKIA UI React Template.",
+  "repository": "nkiateam/create-react-nkia-app",
+  "license": "BSD 3-Clause",
+  "engines": {
+    "node": ">=4"
+  },
+  "bugs": {
+    "url": "https://github.com/nkiateam/create-react-nkia-app/issues"
+  },
+  "files": [
+    "template"
+  ]
+}

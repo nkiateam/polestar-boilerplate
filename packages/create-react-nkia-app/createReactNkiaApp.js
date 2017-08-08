@@ -70,8 +70,8 @@ const program = new commander.Command(packageJson.name)
   process.exit(1);
 }
 console.log('projectName: %s', projectName);
-console.log('program.verbose: %s', program.verbose);
-console.log('program.scriptsVersion: %s', program.scriptsVersion);
+// console.log('program.verbose: %s', program.verbose);
+// console.log('program.scriptsVersion: %s', program.scriptsVersion);
 
 // C:\Users\user\AppData\Roaming\npm\node_modules\create-react-app 디렉토리에 createReactApp.js 참고하면서 개발하자
 // node .\create-react-app.js 프로젝트명

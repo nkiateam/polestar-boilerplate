@@ -2,7 +2,9 @@
   "private": true,
   "description": "POLESTAR UI BOILERPLATE.",
   "scripts": {
-    "install": "tasks/npm-install-create-react-nkia-app.bat",
+    "install": "cd packages/create-react-nkia-app/ && npm install",
+    "server": "http-server ./packages/polestar-template/template/build/ -p 8080 -o /index.html",
+    "build": "webpack --config ./packages/polestar-template/template/webpack.prod.config.js",
     "start": "webpack-dev-server --config ./packages/polestar-template/template/webpack.dev.config.js --open"
   },
   "devDependencies": {
@@ -11,11 +13,15 @@
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
     "eslint": "^4.4.1",
     "eslint-plugin-react": "^7.1.0",
+    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.10.0",
     "json-loader": "^0.5.7",
     "postcss-flexbugs-fixes": "^3.2.0",
     "postcss-loader": "^2.0.6",

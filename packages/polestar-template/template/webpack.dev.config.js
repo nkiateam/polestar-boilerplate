@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const appHtml = __dirname + '/src/index.html';
 
 module.exports = {
 	entry: {
@@ -15,7 +18,7 @@ module.exports = {
 	module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: [
                     path.resolve(__dirname, "node_modules")
                 ],
@@ -84,7 +87,12 @@ module.exports = {
             },
         ]
     },
-
+    plugins: [
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: appHtml,
+        }),
+    ],
     devServer: {
         inline: true,
         host: '127.0.0.1',

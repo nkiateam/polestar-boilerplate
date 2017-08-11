@@ -10,3 +10,4 @@ npm-debug.log
 /META-INF/
 /WEB-INF/
 /packages/create-react-nkia-app/node_modules/
+/packages/polestar-template/template/build/

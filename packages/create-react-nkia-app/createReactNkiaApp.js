@@ -219,6 +219,7 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
                               'webpack', 'webpack-dev-server', 
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',
                               'style-loader', 'css-loader', 'postcss-flexbugs-fixes', 'postcss-loader', 'autoprefixer',
+                              'html-webpack-plugin', 'extract-text-webpack-plugin', 'clean-webpack-plugin',
                               'eslint', 'eslint-plugin-react'];
   // const allDependencies = ['react'];
   // const allDevDependencies = ['eslint'];

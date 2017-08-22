@@ -12,7 +12,7 @@ const semver = require('semver');
 const packageJson = require('./package.json');
 
 let projectName;
-const templateName = 'polestar-template';
+const templateModule = 'polestar-template';
 // const templatePackageJson = require('../../package.json');
 
 const program = new commander.Command(packageJson.name)
@@ -148,7 +148,7 @@ function checkAppName(appName) {
 
   // TODO: there should be a single place that holds the dependencies
   const dependencies = ['react', 'react-dom'];
-  const devDependencies = [templateName];//['react-scripts'];
+  const devDependencies = [templateModule];//['react-scripts'];
   const allDependencies = dependencies.concat(devDependencies).sort();
   if (allDependencies.indexOf(appName) >= 0) {
     console.error(
@@ -211,10 +211,10 @@ function checkNpmVersion() {
 function run(appPath, appName, originalDirectory, template, useYarn) {
   // const allDependencies = Object.keys(templatePackageJson.dependencies);
   // const allDevDependencies = Object.keys(templatePackageJson.devDependencies);
-  // allDevDependencies.push(templateName);
+  // allDevDependencies.push(templateModule);
   
   const allDependencies = ['react', 'react-dom', 'axios', 'lodash'];
-  const allDevDependencies = [templateName, 
+  const allDevDependencies = [templateModule, 
                               'babel-core', 'babel-loader', 'babel-preset-es2015', 'babel-preset-react',
                               'webpack', 'webpack-dev-server', 
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',
@@ -259,12 +259,12 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
     })
     .then(() => {
       console.log(`${chalk.cyan('devDependencies')} is installed`);
-
+      console.log();
       console.log(`Coping ${chalk.cyan('template')}...`);
       console.log();
 
       // template
-      const templatePath = path.resolve(appPath, 'node_modules', templateName, 'template');
+      const templatePath = path.resolve(appPath, 'node_modules', templateModule, 'template');
       if(fs.existsSync(templatePath)) {
         console.log(`appPath is ${appPath}`);
         fs.copySync(templatePath, appPath);
@@ -296,26 +296,36 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
     })
     .then(() => {
       console.log(`${chalk.cyan('template')} is copied`);
+      console.log();
+      console.log(`Coping ${chalk.cyan('config')}...`);
+      console.log();
 
-      // console.log(`Coping ${chalk.cyan('config')}...`);
-      // console.log();
-
-      // // config
-      // const configPath = path.resolve(originalDirectory, 'config');
-      // if(fs.existsSync(configPath)) {
-      //   // console.log(`appPath is ${appPath}`);
-      //   fs.copySync(configPath, appPath);
-      // }else {
-      //   console.error(
-      //     `Could not locate supplied template: ${chalk.green(configPath)}`
-      //   );
-      //   process.exit(1);
-      // }
+      // config
+      const configPath = path.resolve(appPath, 'node_modules', templateModule, 'config');
+      if(fs.existsSync(configPath)) {
+        // console.log(`appPath is ${appPath}`);
+        fs.copySync(configPath, appPath);
+      }else {
+        console.error(
+          `Could not locate supplied template: ${chalk.green(configPath)}`
+        );
+        process.exit(1);
+      }
 
     })
-    // .then(() => {
-    //   console.log(`${chalk.cyan('config')} is copied`);
-    // })
+    .then(() => {
+      console.log(`${chalk.cyan('config')} is copied`);
+
+      // const webpackDevConfig = require(appPath + '/node_modules/polestar-template/config/webpack.dev.config');
+      // webpackDevConfig.entry.app = './src/index.js';
+      // webpackDevConfig.output.path = './build';
+
+      // console.log(webpackDevConfig);
+      // fs.writeFileSync(
+      //   path.join(appPath, 'webpack.dev.config.js'),
+      //   JSON.stringify(webpackDevConfig, null, 2)
+      // );
+    })
 }
 
 function checkIfOnline(useYarn) {

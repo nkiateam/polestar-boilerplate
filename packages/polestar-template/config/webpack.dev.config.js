@@ -1,17 +1,36 @@
 const webpack = require('webpack');
 const path = require('path');
+const os = require('os');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const appHtml = __dirname + '/src/index.html';
+// const appDirectory = fs.realpathSync(process.cwd());
+const appDirectory = process.cwd();
+
+const resolveApp =  relativePath => {
+    let _path, separator = '\\';
+    if(os.platform() !== 'win32') {
+        separator = '/';
+    }
+
+    let dirArr = appDirectory.split(separator);
+    let lastDirName = dirArr[dirArr.length-1];
+    if(lastDirName === 'create-react-nkia-app') {
+        _path = path.resolve(appDirectory, 'packages/polestar-template', 'template', relativePath);
+    }else {
+        _path = path.resolve(appDirectory, relativePath);
+    }
+    
+    return _path;
+}
 
 module.exports = {
 	entry: {
-		app: __dirname + '/src/index.js'
+		app: resolveApp('src/index.js')
 	},
 	output: {
         filename: '[name].js',
-		path: path.resolve(__dirname, 'build'),
+		path: resolveApp('build'),
         publicPath: '/'
     },
     devtool: 'inline-source-map',
@@ -90,13 +109,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,
-            template: appHtml,
+            template: resolveApp('src/index.html'),
         }),
     ],
     devServer: {
         inline: true,
         host: '127.0.0.1',
         port: 3000,
-        contentBase: __dirname + '/',
+        contentBase: resolveApp(''),
     }
 };

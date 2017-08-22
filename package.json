@@ -5,7 +5,7 @@
     "install": "cd packages/create-react-nkia-app/ && npm install",
     "server": "http-server ./packages/polestar-template/template/build/ -p 8080 -o /index.html",
     "build": "webpack --config ./packages/polestar-template/template/webpack.prod.config.js",
-    "start": "webpack-dev-server --config ./packages/polestar-template/template/webpack.dev.config.js --open"
+    "start": "webpack-dev-server --config ./packages/polestar-template/config/webpack.dev.config.js --open"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

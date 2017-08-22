@@ -13,8 +13,8 @@ const resolveApp =  relativePath => {
         separator = '/';
     }
 
-    let dirArr = appDirectory.split(separator);
-    let lastDirName = dirArr[dirArr.length-1];
+    let dirArr = appDirectory.split(separator),
+        lastDirName = dirArr[dirArr.length-1];
     if(lastDirName === 'create-react-nkia-app') {
         _path = path.resolve(appDirectory, 'packages/polestar-template', 'template', relativePath);
     }else {

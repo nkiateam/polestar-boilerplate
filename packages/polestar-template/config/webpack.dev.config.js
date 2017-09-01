@@ -44,7 +44,11 @@ module.exports = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
-                        presets: ['react', 'es2015']
+                        presets: ['react', 'es2015'],
+                        plugins: [
+                            'transform-object-rest-spread',
+                            'transform-class-properties'
+                        ]
                     }
                 }]
             },
@@ -117,5 +121,6 @@ module.exports = {
         host: '127.0.0.1',
         port: 3000,
         contentBase: resolveApp(''),
+        historyApiFallback: true,
     }
 };

@@ -102,7 +102,8 @@ function createApp(name) {
     version: '0.1.0',
     description: '',
     scripts: {
-      build: 'webpack',
+      template: 'cd ./node_modules/polestar-template/templates/ && npm start',
+      build: 'webpack --config ./webpack.prod.config.js',
       start: 'webpack-dev-server --config ./webpack.dev.config.js --open'
     },
     author: 'NKIA',
@@ -213,9 +214,12 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
   // const allDevDependencies = Object.keys(templatePackageJson.devDependencies);
   // allDevDependencies.push(templateModule);
   
-  const allDependencies = ['react', 'react-dom', 'axios', 'lodash'];
+  const allDependencies = ['react', 'react-dom', 'prop-types', 'react-router-dom', 
+                            'redux', 'react-redux', 'redux-saga', 'reselect',
+                            'axios', 'lodash'];
   const allDevDependencies = [templateModule, 
-                              'babel-core', 'babel-loader', 'babel-preset-es2015', 'babel-preset-react',
+                              'babel-core', 'babel-loader', 'babel-preset-es2015', 'babel-preset-react', 'babel-polyfill',
+                              'babel-plugin-transform-object-rest-spread', 'babel-plugin-transform-class-properties',
                               'webpack', 'webpack-dev-server', 
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',
                               'style-loader', 'css-loader', 'postcss-flexbugs-fixes', 'postcss-loader', 'autoprefixer',
@@ -362,7 +366,7 @@ function install(useYarn, dependencies, option, isOnline) {
       }
     } else {
       command = 'npm';
-      args = ['install', option, '--save-exact'].concat(dependencies);
+      args = ['install', option].concat(dependencies); // '--save-exact'
     }
 
     const child = spawn(command, args, { stdio: 'inherit' });

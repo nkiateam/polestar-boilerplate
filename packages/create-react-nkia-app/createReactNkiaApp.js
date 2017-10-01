@@ -102,6 +102,7 @@ function createApp(name) {
     version: '0.1.0',
     description: '',
     scripts: {
+      template: 'webpack-dev-server --config ./webpack.template.config.js --open',
       build: 'webpack --config ./webpack.prod.config.js',
       start: 'webpack-dev-server --config ./webpack.dev.config.js --open'
     },

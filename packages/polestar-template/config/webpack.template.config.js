@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
-		app: path.resolve('node_modules/polestar-template/template/src/index.js')
+		app: path.resolve(__dirname, 'node_modules/polestar-template/template/src/index.js')
 	},
 	output: {
         filename: '[name].js',

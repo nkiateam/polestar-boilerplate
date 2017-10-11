@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const appHtml = __dirname + '/src/index.html';
+const appHtml = path.resolve(__dirname, 'src/index.html');
 
 // build path
 const buildPath = path.resolve(__dirname, 'build');
@@ -15,7 +15,7 @@ const pathsToClean = ['build'];
 
 module.exports = {
 	entry: {
-		app: __dirname + '/src/index.js'
+		app: path.resolve(__dirname, 'src/index.js')
 	},
 	output: {
 		filename: '[name].[chunkhash:8].js',
@@ -29,7 +29,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: [
-                    path.resolve(__dirname, "node_modules")
+                    path.resolve(__dirname, 'node_modules')
                 ],
                 loader: 'babel-loader'
             },

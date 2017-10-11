@@ -19,18 +19,12 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: [
-                    path.resolve(__dirname, 'node_modules')
+                    path.resolve(__dirname, 'node_modules/*')
                 ],
-                use: [{
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['react', 'es2015'],
-                        plugins: [
-                            'transform-object-rest-spread',
-                            'transform-class-properties'
-                        ]
-                    }
-                }]
+                include: [
+                    path.resolve(__dirname, 'node_modules/polestar-template')
+                ],
+                loader: 'babel-loader'
             },
             {
                 test: /\.css$/,

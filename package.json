@@ -3,8 +3,6 @@
   "description": "POLESTAR UI BOILERPLATE.",
   "scripts": {
     "install": "cd packages/create-react-nkia-app/ && npm install",
-    "server": "http-server ./packages/polestar-template/template/build/ -p 8080 -o /index.html 삭제해야 함",
-    "build": "webpack --config ./packages/polestar-template/config/webpack.prod.config.js 삭제해야 함",
     "start": "webpack-dev-server --config ./packages/polestar-template/config/webpack.dev.config.js --open"
   },
   "devDependencies": {
@@ -24,21 +22,20 @@
     "file-loader": "^0.11.2",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
-    "http-server": "^0.10.0",
     "json-loader": "^0.5.7",
     "postcss-flexbugs-fixes": "^3.2.0",
     "postcss-loader": "^2.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.6.1"
+    "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
     "axios": "^0.16.2",
     "lodash": "^4.17.4",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",

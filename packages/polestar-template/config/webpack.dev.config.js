@@ -39,9 +39,12 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: [
-                    path.resolve(__dirname, "node_modules")
+                    path.resolve(__dirname, 'node_modules')
                 ],
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                    extends: path.resolve(__dirname, '.babelrc')
+                }
             },
             {
                 test: /\.css$/,

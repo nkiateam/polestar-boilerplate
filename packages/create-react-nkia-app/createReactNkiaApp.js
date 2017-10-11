@@ -264,17 +264,17 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
     .then(() => {
       console.log(`${chalk.cyan('devDependencies')} is installed`);
       console.log();
-      console.log(`Coping ${chalk.cyan('template')}...`);
+      console.log(`Coping ${chalk.cyan('example')}...`);
       console.log();
 
-      // template
-      const templatePath = path.resolve(appPath, 'node_modules', templateModule, 'template');
-      if(fs.existsSync(templatePath)) {
+      // example
+      const examplePath = path.resolve(appPath, 'node_modules', templateModule, 'example');
+      if(fs.existsSync(examplePath)) {
         console.log(`appPath is ${appPath}`);
-        fs.copySync(templatePath, appPath);
+        fs.copySync(examplePath, appPath);
       }else {
         console.error(
-          `Could not locate supplied template: ${chalk.green(templatePath)}`
+          `Could not locate supplied example: ${chalk.green(examplePath)}`
         );
         process.exit(1);
       }
@@ -299,7 +299,7 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
       );
     })
     .then(() => {
-      console.log(`${chalk.cyan('template')} is copied`);
+      console.log(`${chalk.cyan('example')} is copied`);
       console.log();
       console.log(`Coping ${chalk.cyan('config')}...`);
       console.log();
@@ -311,7 +311,7 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
         fs.copySync(configPath, appPath);
       }else {
         console.error(
-          `Could not locate supplied template: ${chalk.green(configPath)}`
+          `Could not locate supplied config: ${chalk.green(configPath)}`
         );
         process.exit(1);
       }

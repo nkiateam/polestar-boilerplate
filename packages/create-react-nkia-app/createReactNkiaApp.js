@@ -102,7 +102,7 @@ function createApp(name) {
     version: '0.1.0',
     description: '',
     scripts: {
-      example: 'webpack-dev-server --config ./webpack.example.config.js --open',
+      template: 'webpack-dev-server --config ./webpack.template.config.js --open',
       build: 'webpack --config ./webpack.prod.config.js',
       start: 'webpack-dev-server --config ./webpack.dev.config.js --open'
     },
@@ -264,17 +264,17 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
     .then(() => {
       console.log(`${chalk.cyan('devDependencies')} is installed`);
       console.log();
-      console.log(`Coping ${chalk.cyan('example')}...`);
+      console.log(`Coping ${chalk.cyan('template')}...`);
       console.log();
 
-      // example
-      const examplePath = path.resolve(appPath, 'node_modules', templateModule, 'example');
-      if(fs.existsSync(examplePath)) {
+      // template
+      const templatePath = path.resolve(appPath, 'node_modules', templateModule, 'template');
+      if(fs.existsSync(templatePath)) {
         console.log(`appPath is ${appPath}`);
-        fs.copySync(examplePath, appPath);
+        fs.copySync(templatePath, appPath);
       }else {
         console.error(
-          `Could not locate supplied example: ${chalk.green(examplePath)}`
+          `Could not locate supplied template: ${chalk.green(templatePath)}`
         );
         process.exit(1);
       }
@@ -299,7 +299,7 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
       );
     })
     .then(() => {
-      console.log(`${chalk.cyan('example')} is copied`);
+      console.log(`${chalk.cyan('template')} is copied`);
       console.log();
       console.log(`Coping ${chalk.cyan('config')}...`);
       console.log();

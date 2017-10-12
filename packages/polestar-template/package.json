@@ -1,6 +1,6 @@
 {
   "name": "polestar-template",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "keywords": [
     "polestar",
     "polestar-app",
@@ -17,7 +17,7 @@
     "url": "https://github.com/nkiateam/create-react-nkia-app/issues"
   },
   "files": [
-    "example",
+    "template",
     "config"
   ]
 }

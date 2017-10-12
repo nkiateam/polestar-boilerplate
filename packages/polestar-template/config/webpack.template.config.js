@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
-		app: path.resolve(__dirname, 'node_modules/polestar-template/example/src/index.js')
+		app: path.resolve(__dirname, 'node_modules/polestar-template/template/src/index.js')
 	},
 	output: {
         filename: '[name].js',
@@ -87,7 +87,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,
-            template: path.resolve(__dirname, 'node_modules/polestar-template/example/src/index.html'),
+            template: path.resolve(__dirname, 'node_modules/polestar-template/template/src/index.html'),
         }),
     ],
     devServer: {

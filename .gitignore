@@ -9,5 +9,5 @@ npm-debug.log
 /node_modules/
 /META-INF/
 /WEB-INF/
-/packages/create-react-nkia-app/node_modules/
+/packages/polestar-boilerplate/node_modules/
 /packages/polestar-template/template/build/

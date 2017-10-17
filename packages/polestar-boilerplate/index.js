@@ -18,11 +18,11 @@ if (major < 4) {
       'You are running Node ' +
         currentNodeVersion +
         '.\n' +
-        'Create React App requires Node 4 or higher. \n' +
+        'Polestar Boilerplate requires Node 4 or higher. \n' +
         'Please update your version of Node.'
     )
   );
   process.exit(1);
 }
 
-require('./createReactNkiaApp');
+require('./createReactPolestarApp');

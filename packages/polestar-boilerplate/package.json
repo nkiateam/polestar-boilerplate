@@ -1,25 +1,26 @@
 {
-  "name": "create-react-nkia-app",
+  "name": "polestar-boilerplate",
   "version": "0.0.17",
   "keywords": [
     "react",
-    "react-app"
+    "react-app",
+    "polestar"
   ],
   "description": "Create React NKIA apps with no build configuration.",
-  "repository": "nkiateam/create-react-nkia-app",
-  "license": "BSD 3-Clause",
+  "repository": "nkiateam/polestar-boilerplate",
+  "license": "MIT",
   "engines": {
     "node": ">=4"
   },
   "bugs": {
-    "url": "https://github.com/nkiateam/create-react-nkia-app/issues"
+    "url": "https://github.com/nkiateam/polestar-boilerplate/issues"
   },
   "files": [
     "index.js",
-    "createReactNkiaApp.js"
+    "createReactPolestarApp.js"
   ],
   "bin": {
-    "create-react-nkia-app": "./index.js"
+    "polestar-boilerplate": "./index.js"
   },
   "dependencies": {
     "chalk": "^1.1.3",

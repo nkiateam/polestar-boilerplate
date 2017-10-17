@@ -1,13 +1,13 @@
-# create-react-nkia-app
+# polestar-boilerplate
 
 This package is based on the [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Quick Overview
 
 ```sh
-npm install -g create-react-nkia-app
+npm install -g polestar-boilerplate
 
-create-react-nkia-app my-app
+polestar-boilerplate my-app
 cd my-app/
 npm start
 ```

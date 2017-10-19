@@ -218,7 +218,7 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
                             'redux', 'react-redux', 'redux-saga', 'reselect',
                             'axios', 'lodash'];
   const allDevDependencies = [templateModule, 
-                              'babel-core', 'babel-loader', 'babel-preset-es2015', 'babel-preset-react', 'babel-polyfill',
+                              'babel-core', 'babel-loader', 'babel-preset-env', 'babel-preset-react', 'babel-polyfill',
                               'babel-plugin-transform-object-rest-spread', 'babel-plugin-transform-class-properties',
                               'webpack', 'webpack-dev-server', 
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',

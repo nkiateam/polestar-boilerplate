@@ -215,11 +215,12 @@ function run(appPath, appName, originalDirectory, template, useYarn) {
   // allDevDependencies.push(templateModule);
   
   const allDependencies = ['react', 'react-dom', 'prop-types', 'react-router-dom', 
-                            'redux', 'react-redux', 'redux-saga', 'reselect',
+                            'redux', 'react-redux', 'redux-thunk', 'redux-promise-middleware', 'redux-saga', 'reselect', 'redux-logger',
                             'axios', 'lodash'];
   const allDevDependencies = [templateModule, 
                               'babel-core', 'babel-loader', 'babel-preset-env', 'babel-preset-react', 'babel-polyfill',
                               'babel-plugin-transform-object-rest-spread', 'babel-plugin-transform-class-properties',
+                              'babel-plugin-transform-async-to-generator',
                               'webpack', 'webpack-dev-server', 
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',
                               'style-loader', 'css-loader', 'postcss-flexbugs-fixes', 'postcss-loader', 'autoprefixer',

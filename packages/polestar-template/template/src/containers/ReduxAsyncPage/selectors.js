@@ -1,5 +1,5 @@
-export const selectedRedditSelector = state => state.selectedReddit;
-export const postsByRedditSelector = state => state.postsByReddit;
+export const selectedRedditSelector = state => state.get('selectedReddit');
+export const postsByRedditSelector = state => state.get('postsByReddit');
 
 // // react-boilerplate
 // import { createSelector } from 'reselect';

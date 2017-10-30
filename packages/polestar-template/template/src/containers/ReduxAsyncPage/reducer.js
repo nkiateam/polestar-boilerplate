@@ -1,14 +1,14 @@
-import { SELECT_REDDIT, REQUEST_POSTS, RECEIVE_POSTS } from './constants';
+import { SELECT_REDDIT, POSTS_PENDING, POSTS_SUCCESS } from './constants';
 
 const posts = (state = { isFetching: false, items: [] }, action) => {
     switch (action.type) {
-        case REQUEST_POSTS:
+        case POSTS_PENDING:
             return { ...state, isFetching: true }
 
-        case RECEIVE_POSTS:
+        case POSTS_SUCCESS:
             return { ...state,
                 isFetching: false,
-                items: action.posts,
+                items: action.payload,
                 lastUpdated: action.receivedAt
             }
         default:
@@ -27,8 +27,9 @@ export const selectedReddit = (state = 'reactjs', action) => {
 
 export const postsByReddit = (state = { }, action) => {
     switch (action.type) {
-        case REQUEST_POSTS:
-        case RECEIVE_POSTS:
+        case POSTS_PENDING:
+        case POSTS_SUCCESS:
+            console.log('POSTS_SUCCESS', action);
             return { ...state,
                 [action.reddit]: posts(state[action.reddit], action)
             }

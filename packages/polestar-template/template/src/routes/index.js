@@ -6,7 +6,7 @@ import Bus from '../containers/App/components/Bus';
 import Cart from '../containers/App/components/Cart';
 
 import ReduxPage from '../containers/ReduxPage';
-import ReduxSagaPage from '../containers/ReduxSagaPage';
+import ReduxAsyncPage from '../containers/ReduxAsyncPage';
 
 const routes = [
     // { path: '/',
@@ -29,8 +29,8 @@ const routes = [
     { path: '/redux',
       component: ReduxPage
     },
-    { path: '/redux-saga',
-      component: ReduxSagaPage
+    { path: '/redux-async',
+      component: ReduxAsyncPage
     }
   ];
   

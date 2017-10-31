@@ -3,7 +3,7 @@
   "description": "POLESTAR UI BOILERPLATE.",
   "scripts": {
     "install": "cd packages/polestar-boilerplate/ && npm install",
-    "start": "cross-env APP_ENV=template webpack-dev-server --config ./packages/polestar-template/config/webpack.dev.config.js --open"
+    "start": "cross-env NODE_ENV=development TEMP_TYPE=template webpack-dev-server --config ./packages/polestar-template/config/webpack.dev.config.js --open"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

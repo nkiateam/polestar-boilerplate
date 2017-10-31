@@ -24,6 +24,12 @@ module.exports = {
                 include: [
                     path.resolve(__dirname, 'node_modules/polestar-template')
                 ],
+                // exclude: [
+                //     path.resolve(__dirname, 'node_modules/!polestar-template')
+                // ],
+                // exclude: [
+                //     path.resolve(__dirname, 'node_modules', '!polestar-template')
+                // ],
                 loader: 'babel-loader'
             },
             {

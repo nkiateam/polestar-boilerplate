@@ -6,11 +6,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // const appDirectory = fs.realpathSync(process.cwd());
 const appDirectory = process.cwd();
+const TEMP_TYPE = process.env.TEMP_TYPE ? process.env.TEMP_TYPE : 'template';
+const excludeModule = '';
+const port = 3000;
 
 const resolveApp =  relativePath => {
     
-    if(process.env.APP_ENV === 'template') {
-        _path = path.resolve(appDirectory, 'packages/polestar-template', 'template', relativePath);
+    if(process.env.NODE_ENV === 'development') {
+        _path = path.resolve(appDirectory, 'packages/polestar-template', TEMP_TYPE, relativePath);
+    }else if(process.env.NODE_ENV === 'production') {
+        _path = path.resolve(appDirectory, 'node_modules/polestar-template', TEMP_TYPE, relativePath);
+        excludeModule = '!polestar-template';
+        port = 4000;
     }else {
         _path = path.resolve(appDirectory, relativePath);
     }
@@ -33,7 +40,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: [
-                    path.resolve(__dirname, 'node_modules')
+                    path.resolve(__dirname, 'node_modules', excludeModule)
                 ],
                 loader: 'babel-loader',
                 options: {
@@ -107,7 +114,7 @@ module.exports = {
     devServer: {
         inline: true,
         host: '127.0.0.1',
-        port: 3000,
+        port: port,
         contentBase: resolveApp(''),
         historyApiFallback: true,
     }

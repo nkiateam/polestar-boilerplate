@@ -37,7 +37,7 @@ const program = new commander.Command(packageJson.name)
   })
   .parse(process.argv);
 
-  if (typeof projectName === 'undefined') {
+if (typeof projectName === 'undefined') {
   console.error('Please specify the project directory:');
   console.log(
     `  ${chalk.cyan(program.name())} ${chalk.green('<project-directory>')}`
@@ -51,7 +51,7 @@ const program = new commander.Command(packageJson.name)
   );
   process.exit(1);
 }
-console.log('projectName: %s', projectName);
+// console.log('projectName: %s', projectName);
 
 // C:\Users\user\AppData\Roaming\npm\node_modules\create-react-app 디렉토리에 createReactApp.js 참고하면서 개발하자
 // node .\create-react-app.js 프로젝트명
@@ -82,10 +82,10 @@ function createApp(name) {
     version: '0.1.0',
     description: '',
     scripts: {
-      template: 'webpack-dev-server --config ./webpack.template.config.js --open',
+      template: 'cross-env NODE_ENV=production TEMP_TYPE=template webpack-dev-server --config ./webpack.dev.config.js --open',
       'build:clean': 'rimraf ./build',
       build: 'npm run build:clean && cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js',
-      start: 'cross-env APP_ENV=application webpack-dev-server --config ./webpack.dev.config.js --open'
+      start: 'webpack-dev-server --config ./webpack.dev.config.js --open'
     },
     author: 'NKIA',
   };
@@ -321,7 +321,8 @@ function run(appPath, appName, originalDirectory, useYarn) {
     })
     .then(() => {
       console.log(`${chalk.cyan('config')} is copied`);
-
+      console.log();
+      console.log(`${chalk.cyan(projectName)} is created`);
       // const webpackDevConfig = require(appPath + '/node_modules/polestar-template/config/webpack.dev.config');
       // webpackDevConfig.entry.app = './src/index.js';
       // webpackDevConfig.output.path = './build';

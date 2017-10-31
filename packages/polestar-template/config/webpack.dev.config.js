@@ -7,8 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const appDirectory = fs.realpathSync(process.cwd());
 const appDirectory = process.cwd();
 const TEMP_TYPE = process.env.TEMP_TYPE ? process.env.TEMP_TYPE : 'template';
-const excludeModule = '';
-const port = 3000;
+let excludeModule = '';
+let port = 3000;
 
 const resolveApp =  relativePath => {
     

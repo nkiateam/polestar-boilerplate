@@ -3,7 +3,7 @@
   "description": "POLESTAR UI BOILERPLATE.",
   "scripts": {
     "install": "cd packages/polestar-boilerplate/ && npm install",
-    "start": "webpack-dev-server --config ./packages/polestar-template/config/webpack.dev.config.js --open"
+    "start": "cross-env APP_ENV=template webpack-dev-server --config ./packages/polestar-template/config/webpack.dev.config.js --open"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -15,7 +15,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.16",
+    "cross-env": "^5.1.1",
     "css-loader": "^0.28.4",
     "eslint": "^4.4.1",
     "eslint-plugin-react": "^7.1.0",
@@ -42,7 +42,6 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^0.15.6",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
   }

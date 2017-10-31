@@ -83,8 +83,9 @@ function createApp(name) {
     description: '',
     scripts: {
       template: 'webpack-dev-server --config ./webpack.template.config.js --open',
-      build: 'webpack --config ./webpack.prod.config.js',
-      start: 'webpack-dev-server --config ./webpack.dev.config.js --open'
+      'build:clean': 'rimraf ./build',
+      build: 'npm run build:clean && cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js',
+      start: 'cross-env APP_ENV=application webpack-dev-server --config ./webpack.dev.config.js --open'
     },
     author: 'NKIA',
   };
@@ -220,12 +221,12 @@ function run(appPath, appName, originalDirectory, useYarn) {
                               'babel-core', 'babel-loader', 'babel-preset-env', 'babel-preset-react', 'babel-polyfill',
                               'babel-plugin-transform-object-rest-spread', 'babel-plugin-transform-class-properties',
                               'babel-plugin-transform-async-to-generator',
+                              'rimraf', 'cross-env',
                               'webpack', 'webpack-dev-server', 
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',
                               'style-loader', 'css-loader', 'postcss-flexbugs-fixes', 'postcss-loader', 'autoprefixer',
-                              'html-webpack-plugin', 'extract-text-webpack-plugin', 'clean-webpack-plugin',
-                              'eslint', 'eslint-plugin-react',
-                              'rimraf'];
+                              'html-webpack-plugin', 'extract-text-webpack-plugin',
+                              'eslint', 'eslint-plugin-react'];
   // const allDependencies = ['react'];
   // const allDevDependencies = ['eslint'];
 

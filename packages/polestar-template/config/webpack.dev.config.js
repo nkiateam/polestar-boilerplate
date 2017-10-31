@@ -8,14 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const appDirectory = process.cwd();
 
 const resolveApp =  relativePath => {
-    let _path, separator = '\\';
-    if(os.platform() !== 'win32') {
-        separator = '/';
-    }
-
-    let dirArr = appDirectory.split(separator),
-        lastDirName = dirArr[dirArr.length-1];
-    if(lastDirName === 'polestar-boilerplate') {
+    
+    if(process.env.APP_ENV === 'template') {
         _path = path.resolve(appDirectory, 'packages/polestar-template', 'template', relativePath);
     }else {
         _path = path.resolve(appDirectory, relativePath);

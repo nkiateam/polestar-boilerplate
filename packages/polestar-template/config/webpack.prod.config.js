@@ -3,15 +3,12 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const appHtml = path.resolve(__dirname, 'src/index.html');
 
 // build path
 const buildPath = path.resolve(__dirname, 'build');
 const cssFilename = 'static/[name].[contenthash:8].css';
-
-const pathsToClean = ['build'];
 
 module.exports = {
 	entry: {
@@ -121,6 +118,5 @@ module.exports = {
 		new ExtractTextPlugin({
       		filename: cssFilename,
 		}),
-		new CleanWebpackPlugin(pathsToClean),
 	]
 }

@@ -12,38 +12,29 @@ module.exports = {
 
   entry: fs.readdirSync(__dirname).reduce(function (entries, dir) {
     var isDraft = dir.charAt(0) === '_' || dir.indexOf('components') >= 0;
-
+    
     if (!isDraft && isDirectory(path.join(__dirname, dir))) {
-      entries[dir] = path.join(__dirname, dir, 'app.js');
+      entries[dir] = path.join(__dirname, dir, 'index.js');
     }
 
     return entries;
   }, {}),
 
   output: {
-    path: 'examples/__build__',
+    path: path.resolve(__dirname, 'examples/__build__'),
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
     publicPath: '/__build__/'
   },
 
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+    rules: [
+      { test: /\.(js|jsx)$/, exclude: path.resolve(__dirname, 'node_modules'), loader: 'babel-loader' }
     ]
   },
 
-  resolve: {
-    alias: {
-      'formsy-react': '../../src/main'
-    }
-  },
-
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('shared.js'),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    })
+    new webpack.optimize.CommonsChunkPlugin('commons')
   ]
 
 };

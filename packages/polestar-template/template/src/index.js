@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/style.css';
 import './styles/font-awesome-4.7.0/css/font-awesome.min.css';
-import App from './containers/App';
+import App from './pages/App';
 
 import { Provider  } from 'react-redux';
 import configureStore from './store/configureStore';

@@ -1,12 +1,12 @@
 import RouteWithSubRoutes from './RouteWithSubRoutes';
 
-import Home from '../containers/App/components/Home';
-import About from '../containers/App/components/About';
-import Bus from '../containers/App/components/Bus';
-import Cart from '../containers/App/components/Cart';
+import Home from '../pages/App/components/Home';
+import About from '../pages/App/components/About';
+import Bus from '../pages/App/components/Bus';
+import Cart from '../pages/App/components/Cart';
 
-import ReduxPage from '../containers/ReduxPage';
-import ReduxAsyncPage from '../containers/ReduxAsyncPage';
+import ReduxPage from '../pages/ReduxPage';
+import ReduxAsyncPage from '../pages/ReduxAsyncPage';
 
 const routes = [
     // { path: '/',

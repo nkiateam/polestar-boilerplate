@@ -31,7 +31,10 @@ module.exports = {
                 exclude: [
                     path.resolve(__dirname, 'node_modules')
                 ],
-                loader: 'babel-loader'
+                use: [
+					'babel-loader',
+					'eslint-loader'
+				]
             },
             {
                 test: /\.css$/,
@@ -101,7 +104,8 @@ module.exports = {
         alias: {
             RouteWithSubRoutes: path.resolve(__dirname, 'src/routes/RouteWithSubRoutes.js'),
             commons: path.resolve(__dirname, 'src/commons/'),
-            pages: path.resolve(__dirname, 'src/pages/'),
+			pages: path.resolve(__dirname, 'src/pages/'),
+			services: path.resolve(__dirname, 'src/services/'),
             styles: path.resolve(__dirname, 'src/styles/')
         }
 	},

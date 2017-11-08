@@ -1,4 +1,4 @@
-{
+module.exports = {
   "parser": "babel-eslint",
   "rules": {
     "max-len": [1, 120, 2, {"ignoreComments": true}],
@@ -11,11 +11,11 @@
     "react/prop-types": 0,
     "react/jsx-indent-props": [2, 4],
     "react/forbid-prop-types": 0,
-    "jsx-a11y/href-no-hash": 0,
+    "jsx-a11y/href-no-hash": 0
   },
   "env": {
     "browser": true,
-    "node": true,
+    "node": true
   },
-  "extends": ["airbnb"],
+  "extends": ["airbnb"]
 }

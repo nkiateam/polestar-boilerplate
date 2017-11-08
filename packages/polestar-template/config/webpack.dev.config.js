@@ -45,10 +45,14 @@ module.exports = {
                 exclude: [
                     path.resolve(__dirname, 'node_modules', excludeModule)
                 ],
-                loader: 'babel-loader',
-                options: {
-                    extends: path.resolve(__dirname, '.babelrc')
-                }
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            extends: path.resolve(__dirname, '.babelrc')
+                        }
+                    }
+                ]
             },
             {
                 test: /\.css$/,
@@ -114,6 +118,7 @@ module.exports = {
             RouteWithSubRoutes: resolveApp('src/routes/RouteWithSubRoutes.js'),
             commons: resolveApp('src/commons/'),
             pages: resolveApp('src/pages/'),
+            services: resolveApp('src/services/'),
             styles: resolveApp('src/styles/')
         }
     },

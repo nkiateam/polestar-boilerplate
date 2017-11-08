@@ -229,7 +229,7 @@ function run(appPath, appName, originalDirectory, useYarn) {
                               'style-loader', 'css-loader', 'postcss-flexbugs-fixes', 'postcss-loader', 'autoprefixer',
                               'html-webpack-plugin', 'extract-text-webpack-plugin',
                               'eslint', 'eslint-plugin-react', 'eslint-plugin-import', 'eslint-plugin-jsx-a11y', 
-                              'eslint-config-airbnb'];
+                              'eslint-loader', 'eslint-config-airbnb'];
   // const allDependencies = ['react'];
   // const allDevDependencies = ['eslint'];
 

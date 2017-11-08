@@ -217,9 +217,10 @@ function run(appPath, appName, originalDirectory, useYarn) {
   
   const allDependencies = ['react', 'react-dom', 'prop-types', 'react-router-dom', 
                             'redux', 'react-redux', 'redux-thunk', 'reselect', 'redux-logger',
-                            'axios', 'lodash'];
+                            'axios', 'lodash', 'i18next'];
   const allDevDependencies = [templateModule, 
-                              'babel-core', 'babel-loader', 'babel-preset-env', 'babel-preset-react', 'babel-polyfill',
+                              'babel-core', 'babel-loader', 'babel-preset-env', 'babel-preset-react', 'babel-polyfill', 
+                              'babel-eslint',
                               'babel-plugin-transform-object-rest-spread', 'babel-plugin-transform-class-properties',
                               'babel-plugin-transform-async-to-generator',
                               'rimraf', 'cross-env',
@@ -227,7 +228,8 @@ function run(appPath, appName, originalDirectory, useYarn) {
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',
                               'style-loader', 'css-loader', 'postcss-flexbugs-fixes', 'postcss-loader', 'autoprefixer',
                               'html-webpack-plugin', 'extract-text-webpack-plugin',
-                              'eslint', 'eslint-plugin-react'];
+                              'eslint', 'eslint-plugin-react', 'eslint-plugin-import', 'eslint-plugin-jsx-a11y', 
+                              'eslint-config-airbnb'];
   // const allDependencies = ['react'];
   // const allDevDependencies = ['eslint'];
 

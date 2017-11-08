@@ -14,13 +14,16 @@ module.exports = {
 	entry: {
 		app: path.resolve(__dirname, 'src/index.js')
 	},
+
 	output: {
 		filename: '[name].[chunkhash:8].js',
 		chunkFilename: '[name].[chunkhash:8].chunk.js',
 		path: buildPath,
         publicPath: '/'
-    },
+	},
+	
 	devtool: 'source-map',
+
 	module: {
         rules: [
             {
@@ -92,7 +95,17 @@ module.exports = {
                 },
             },
         ]
-    },
+	},
+	
+	resolve: {
+        alias: {
+            RouteWithSubRoutes: path.resolve(__dirname, 'src/routes/RouteWithSubRoutes.js'),
+            commons: path.resolve(__dirname, 'src/commons/'),
+            pages: path.resolve(__dirname, 'src/pages/'),
+            styles: path.resolve(__dirname, 'src/styles/')
+        }
+	},
+	
 	plugins: [
   		new webpack.DefinePlugin({
 			'process.env': {
@@ -103,7 +116,19 @@ module.exports = {
 		  }),
 		new HtmlWebpackPlugin({
             inject: true,
-            template: appHtml,
+			template: appHtml,
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true,
+				removeRedundantAttributes: true,
+				useShortDoctype: true,
+				removeEmptyAttributes: true,
+				removeStyleLinkTypeAttributes: true,
+				keepClosingSlash: true,
+				minifyJS: true,
+				minifyCSS: true,
+				minifyURLs: true,
+			},
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {

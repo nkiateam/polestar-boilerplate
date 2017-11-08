@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { routes, RouteWithSubRoutes } from '../../routes';
+import RouteWithSubRoutes from 'RouteWithSubRoutes';
+import routes from './routes';
 
-import Home from './components/Home';
+import Home from 'pages/Home';
 
-import logo from '../../styles/images/polestarlogo.png';
+import logo from 'styles/images/polestarlogo.png';
 
 class App extends Component {
     render() {
@@ -23,7 +24,7 @@ class App extends Component {
                             <Link to="/home">Home</Link>
                         </li>
                         <li className="menu-link">
-                            <Link to="/about">About</Link>
+                            <Link to="/sample">Sample</Link>
                         </li>
                         <li className="menu-link">
                             <Link to="/redux">Redux</Link>

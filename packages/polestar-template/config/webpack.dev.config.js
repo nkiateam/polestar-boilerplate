@@ -28,13 +28,16 @@ const resolveApp =  relativePath => {
 module.exports = {
 	entry: {
 		app: resolveApp('src/index.js')
-	},
+    },
+    
 	output: {
         filename: '[name].js',
 		path: resolveApp('build'),
         publicPath: '/'
     },
+
     devtool: 'inline-source-map',
+
 	module: {
         rules: [
             {
@@ -105,6 +108,16 @@ module.exports = {
             },
         ]
     },
+
+    resolve: {
+        alias: {
+            RouteWithSubRoutes: resolveApp('src/routes/RouteWithSubRoutes.js'),
+            commons: resolveApp('src/commons/'),
+            pages: resolveApp('src/pages/'),
+            styles: resolveApp('src/styles/')
+        }
+    },
+
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,

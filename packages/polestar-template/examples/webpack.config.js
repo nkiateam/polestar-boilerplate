@@ -21,7 +21,7 @@ module.exports = {
   }, {}),
 
   output: {
-    path: path.resolve(__dirname, 'examples/__build__'),
+    path: path.resolve(__dirname, '__build__'),
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
     publicPath: '/__build__/'

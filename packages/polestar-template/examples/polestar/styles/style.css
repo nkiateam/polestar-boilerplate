@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+.left-menu {
+  /* position: fixed; 
+  top: 0;
+  bottom: 0;*/
+  height: 100vh;
+  background-color: #293652;
+}
+
+.menulogo {
+  height: 86px;
+  vertical-align: middle;
+  padding-top: 9px;
+  background-color: #293652;
+  text-align: center !important;
+}
+
+.menunav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-link {
+  text-align: left !important;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  /* float: left; */
+}
+
+.menu-link > a {
+  color: #211616;
+  text-decoration: none;
+}
+
+.content {
+
+}

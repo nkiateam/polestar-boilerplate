@@ -11,7 +11,16 @@ module.exports = {
     "react/prop-types": 0,
     "react/jsx-indent-props": [2, 4],
     "react/forbid-prop-types": 0,
-    "jsx-a11y/href-no-hash": 0
+    "jsx-a11y/href-no-hash": 0,
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off"
+  },
+  "settings" : {
+	  "import/resolver": {
+		  "webpack": {
+			"config": "webpack.prod.config.js"
+	    }
+	  }
   },
   "env": {
     "browser": true,

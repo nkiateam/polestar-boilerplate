@@ -45,14 +45,20 @@ module.exports = {
                 exclude: [
                     path.resolve(__dirname, 'node_modules', excludeModule)
                 ],
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            extends: path.resolve(__dirname, '.babelrc')
-                        }
-                    }
-                ]
+                loader: 'babel-loader',
+                options: {
+                    extends: path.resolve(__dirname, '.babelrc')
+                }
+            },
+            {
+                test: /\.less$/,
+                use: [{
+                    loader: 'style-loader' // creates style nodes from JS strings
+                }, {
+                    loader: 'css-loader' // translates CSS into CommonJS
+                }, {
+                    loader: 'less-loader' // compiles Less to CSS
+                }]
             },
             {
                 test: /\.css$/,
@@ -129,9 +135,10 @@ module.exports = {
             template: resolveApp('src/index.html'),
         }),
     ],
+
     devServer: {
         inline: true,
-        host: '127.0.0.1',
+        host: 'localhost',
         port: port,
         contentBase: resolveApp(''),
         historyApiFallback: true,

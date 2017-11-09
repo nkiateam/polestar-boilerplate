@@ -1,6 +1,10 @@
-var fs = require('fs');
-var path = require('path');
-var webpack = require('webpack');
+const fs = require('fs');
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+let port = 3333;
 
 function isDirectory(dir) {
   return fs.lstatSync(dir).isDirectory();
@@ -21,20 +25,122 @@ module.exports = {
   }, {}),
 
   output: {
-    path: path.resolve(__dirname, '__build__'),
+    path: path.resolve(__dirname, 'build'),
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
-    publicPath: '/__build__/'
+    publicPath: '/build/'
   },
 
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, exclude: path.resolve(__dirname, 'node_modules'), loader: 'babel-loader' }
+      { 
+        test: /\.(js|jsx)$/, 
+        exclude: path.resolve(__dirname, 'node_modules'), 
+        loader: 'babel-loader',
+        options: {
+          extends: path.resolve(__dirname, '../config/.babelrc')
+        }
+      },
+      {
+        test: /\.less$/,
+        use: [{
+            loader: 'style-loader' // creates style nodes from JS strings
+        }, {
+            loader: 'css-loader' // translates CSS into CommonJS
+        }, {
+            loader: 'less-loader' // compiles Less to CSS
+        }]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          require.resolve('style-loader'),
+          {
+              loader: require.resolve('css-loader'),
+              options: {
+                  importLoaders: 1,
+              },
+          },
+          {
+              loader: require.resolve('postcss-loader'),
+              options: {
+                  ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                  plugins: () => [
+                      require('postcss-flexbugs-fixes'),
+                      autoprefixer({
+                          browsers: [
+                              '>1%',
+                              'last 4 versions',
+                              'Firefox ESR',
+                              'not ie < 9', // React doesn't support IE8 anyway
+                          ],
+                          flexbox: 'no-2009',
+                      }),
+                  ],
+              },
+          },
+        ],
+      },
+      // file-loader
+      {
+        exclude: [
+            /\.html$/,
+            /\.(js|jsx)$/,
+            /\.css$/,
+            /\.json$/,
+            /\.bmp$/,
+            /\.gif$/,
+            /\.jpe?g$/,
+            /\.png$/,
+        ],
+        loader: require.resolve('file-loader'),
+        options: {
+            name: 'static/media/[name].[hash:8].[ext]',
+        },
+      },
+      // url-loader
+      {
+          test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+          loader: require.resolve('url-loader'),
+          options: {
+              limit: 10000,
+              name: 'static/media/[name].[hash:8].[ext]',
+          },
+      },
     ]
   },
 
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin('commons')
-  ]
+  resolve: {
+    alias: {
+      RouteWithSubRoutes: path.resolve(__dirname, 'polestar/routes/RouteWithSubRoutes.js'),
+      commons: path.resolve(__dirname, 'polestar/commons/'),
+			pages: path.resolve(__dirname, 'polestar/pages/'),
+			services: path.resolve(__dirname, 'polestar/services/'),
+      styles: path.resolve(__dirname, 'polestar/styles/')
+    }
+	},
 
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('commons'),
+    new HtmlWebpackPlugin({
+      inject: true,
+      chunks: ['login', 'commons'],
+      filename: 'login.html',
+      template: path.resolve(__dirname, 'login/index.html'),
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      chunks: ['polestar', 'commons'],
+      filename: 'polestar.html',
+      template: path.resolve(__dirname, 'polestar/index.html'),
+    }),
+  ],
+
+  devServer: {
+    inline: true,
+    host: 'localhost',
+    port: port,
+    contentBase: path.resolve(__dirname),
+    historyApiFallback: true,
+  }
 };

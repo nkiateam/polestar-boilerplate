@@ -9,6 +9,9 @@ const appHtml = path.resolve(__dirname, 'src/index.html');
 // build path
 const buildPath = path.resolve(__dirname, 'build');
 const cssFilename = 'static/[name].[contenthash:8].css';
+const extractLess = new ExtractTextPlugin({
+    filename: 'static/[name].less.[contenthash:8].css'
+});
 
 module.exports = {
 	entry: {
@@ -35,6 +38,24 @@ module.exports = {
 					'babel-loader',
 					'eslint-loader'
 				]
+			},
+			{
+                test: /\.less$/,
+                use: extractLess.extract({
+                    use: [{
+                        loader: 'css-loader?sourceMap',
+                        options: {
+                            sourceMap: true
+                        }
+                    }, {
+                        loader: 'less-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }],
+                    // use style-loader in development
+                    fallback: 'style-loader'
+                })
             },
             {
                 test: /\.css$/,
@@ -144,6 +165,7 @@ module.exports = {
 			},
 			sourceMap: true,
 		}),
+		extractLess,
 		new ExtractTextPlugin({
       		filename: cssFilename,
 		}),

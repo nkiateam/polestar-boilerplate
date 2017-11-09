@@ -2,6 +2,7 @@
   "private": true,
   "description": "POLESTAR UI BOILERPLATE.",
   "scripts": {
+    "examples": "webpack-dev-server --config ./packages/polestar-template/examples/webpack.config.js --open",
     "install": "cd packages/polestar-boilerplate/ && npm install",
     "start": "cross-env NODE_ENV=development TEMP_TYPE=template webpack-dev-server --config ./packages/polestar-template/config/webpack.dev.config.js --open"
   },
@@ -30,6 +31,8 @@
     "html-webpack-plugin": "^2.30.1",
     "i18next": "^10.0.7",
     "json-loader": "^0.5.7",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "postcss-flexbugs-fixes": "^3.2.0",
     "postcss-loader": "^2.0.6",
     "rimraf": "^2.6.2",

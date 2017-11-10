@@ -3,13 +3,21 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import RouteWithSubRoutes from 'RouteWithSubRoutes';
-import routes from './routes';
-
 import Home from 'pages/Home';
-
 import logo from 'styles/images/polestarlogo.png';
 
+import routes from './routes';
+
 class App extends Component {
+
+    static propTypes = {
+        width: PropTypes.number,
+    };
+
+    static defaultProps = {
+        width: 100,
+    };
+
     render() {
         return (
             <Router>

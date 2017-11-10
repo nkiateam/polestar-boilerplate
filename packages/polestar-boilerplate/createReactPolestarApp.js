@@ -82,7 +82,7 @@ function createApp(name) {
     version: '0.1.0',
     description: '',
     scripts: {
-        examples: 'webpack-dev-server --config node_modules/polestar-template/examples/webpack.config.js --open --content-base node_modules/polestar-template/examples',
+        examples: 'webpack-dev-server --config node_modules/polestar-template/examples/webpack.config.js --open',
         template: 'cross-env NODE_ENV=production TEMP_TYPE=template webpack-dev-server --config ./webpack.dev.config.js --open',
         'build:clean': 'rimraf ./build',
         build: 'npm run build:clean && cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js',

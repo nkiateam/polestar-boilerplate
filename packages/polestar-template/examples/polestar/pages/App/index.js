@@ -1,48 +1,59 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Layout, Menu, Icon, Breadcrumb, Button } from 'antd';
 
+import HeaderArea from './components/HeaderArea';
+import BookmarkArea from './components/BookmarkArea';
+import Home from 'pages/Home';
 import RouteWithSubRoutes from 'RouteWithSubRoutes';
 import routes from './routes';
+const { Header, Content, Footer, Sider } = Layout;
 
-import Home from 'pages/Home';
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-import logo from 'styles/images/polestarlogo.png';
+    componentDidMount() {
+        console.info("Layout#1", this);
+    }
 
-class App extends Component {
     render() {
+        console.info("render Layout")
         return (
             <Router>
-                <div>
-                    <div className="menulogo">
-                        <a href="/">
-                            <img src={logo} />
-                        </a>
-                    </div>
-                    <ul className="menunav-list">
-                        <li className="menu-link">
-                            <Link to="/home">Home</Link>
-                        </li>
-                        <li className="menu-link">
-                            <Link to="/sample">Sample</Link>
-                        </li>
-                        <li className="menu-link">
-                            <Link to="/redux">Redux</Link>
-                        </li>
-                        <li className="menu-link">
-                            <Link to="/redux-async">Redux 비동기</Link>               
-                        </li>
-                    </ul>
-                    <div className="content">
-                        <Route exact path="/" render={() => (
-                            <Home />
-                        )}/>
-                        {routes.map((route, i) => (
-                            <RouteWithSubRoutes key={i} {...route}/>
-                        ))}
-                    </div>
-                </div>
+                <Layout>
+                    <Layout style={{ height: "100vh" }}>
+                        <Header className="header" >
+                            <HeaderArea />
+                        </Header>
+                        <BookmarkArea />
+                        <Content>
+                            <Breadcrumb >
+                                <Breadcrumb.Item><Icon type="home" /> Home</Breadcrumb.Item>
+                                <Breadcrumb.Item>List</Breadcrumb.Item>
+                                <Breadcrumb.Item>App</Breadcrumb.Item>
+                            </Breadcrumb>
+                            <Route exact path="/" render={() => (
+                                <Home />
+                            )}/>
+                            {routes.map((route, i) => (
+                                <RouteWithSubRoutes key={i} {...route}/>
+                            ))}
+                        </Content>
+                        <Footer style={{textAlign: 'center',height: "4vh"   }}>
+                            POLESTAR © NKIA, All Rights Reserved.
+                        </Footer>
+                    </Layout>
+                    {/* <img src="/public/footer_bn3.png" className="hand" /> */}
+                    <Button className="btn-left-bottom" shape="circle" icon="bars" size="large" />
+                    <Button className="btn-right-bottom" shape="circle" icon="message" size="large" />
+                </Layout>
             </Router>
+
+
+
         );
     }
 }

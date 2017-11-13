@@ -7,6 +7,7 @@
     "start": "cross-env NODE_ENV=development TEMP_TYPE=template webpack-dev-server --config ./packages/polestar-template/config/webpack.dev.config.js --open"
   },
   "devDependencies": {
+    "antd": "^2.13.10",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-eslint": "^8.0.2",
@@ -17,6 +18,9 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
     "cross-env": "^5.1.1",
     "css-loader": "^0.28.4",
     "eslint": "^4.4.1",
@@ -48,6 +52,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",

@@ -14,8 +14,7 @@ const routes = [
       component: Sample
     },
     { path: '/redux',
-      component: Redux
-    },
+      component: Redux},
     { path: '/redux-async',
       component: ReduxAsync
     }

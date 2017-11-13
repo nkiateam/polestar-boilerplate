@@ -35,7 +35,7 @@ module.exports = {
     rules: [
       { 
         test: /\.(js|jsx)$/, 
-        exclude: path.resolve(__dirname, 'node_modules'), 
+        exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
           extends: path.resolve(__dirname, '../config/.babelrc')
@@ -87,6 +87,7 @@ module.exports = {
             /\.html$/,
             /\.(js|jsx)$/,
             /\.css$/,
+            /\.less$/,
             /\.json$/,
             /\.bmp$/,
             /\.gif$/,

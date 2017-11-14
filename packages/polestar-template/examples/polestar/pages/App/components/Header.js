@@ -16,7 +16,7 @@ class Header extends React.Component {
      */
     renderLogo = () => (
         <Col lg={3} style={{ textAlign: 'left' }}>
-            <div className="logo" >POLESTAR</div>
+            <div className="polestar-app-logo" >POLESTAR</div>
         </Col>
     );
 

@@ -12,8 +12,9 @@ class BookmarkBar extends React.Component {
     }
 
     render() {
+        const { ...props } = this.props;
         return (
-            <Row className="bookmark-row" >
+            <Row {...props}>
                 <Col span={24} >
                     <Button icon="book" style={{ border: '0px' }} ghost>
                         최근 방문

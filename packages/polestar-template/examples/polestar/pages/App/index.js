@@ -45,13 +45,13 @@ class App extends React.Component {
     /**
      * 레이아웃의 푸터 영역을 렌더링하는 함수 (POLESTAR © NKIA, All Rights Reserved.)
      */
-    renderFooter = () => <Footer />;
+    renderFooter = () => <Footer className="polestar-app-footer" />;
 
     /**
      * 헤더, 북마크, 브레드크럼, 컨텐츠, 푸터를 전체 레이아웃으로 합쳐서 렌더링 하는 함수
      */
     renderLayout = () => (
-        <Layout>
+        <Layout className="polestar-app-container">
             <Layout style={{ height: '100vh' }}>
                 {this.renderHeader()}
                 {this.renderBookmarkBar()}
@@ -59,7 +59,7 @@ class App extends React.Component {
                 {this.renderFooter()}
             </Layout>
             <Button
-                className="btn-left-bottom"
+                className="polestar-app-sidebar-button"
                 shape="circle"
                 icon="bars"
                 size="large"
@@ -68,7 +68,7 @@ class App extends React.Component {
                 type="default"
             />
             <Button
-                className="btn-right-bottom"
+                className="polestar-app-chatbot-button"
                 shape="circle"
                 icon="message"
                 size="large"

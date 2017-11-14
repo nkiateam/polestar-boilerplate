@@ -1,59 +1,90 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Layout, Menu, Icon, Breadcrumb, Button } from 'antd';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Button, Layout } from 'antd';
 
-import HeaderArea from './components/HeaderArea';
-import BookmarkArea from './components/BookmarkArea';
-import Home from 'pages/Home';
-import RouteWithSubRoutes from 'RouteWithSubRoutes';
+import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
+
+import Header from './components/Header';
+import Footer from './components/Footer';
+import BookmarkBar from './components/BookmarkBar';
+import Breadcrumb from './components/Breadcrumb';
 import routes from './routes';
-const { Header, Content, Footer, Sider } = Layout;
+import './styles/App.less';
+
+const { Content } = Layout;
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    /**
+     * 레이아웃의 헤더 영역을 렌더링하는 함수 (POLESTAR 로고, 대메뉴, 각종 버튼들...)
+     */
+    renderHeader = () => <Header className="polestar-app-header" />;
 
-    componentDidMount() {
-        console.info("Layout#1", this);
-    }
+    /**
+     * 북마크바를 렌더링하는 함수 (최근 방문, 자주 방문, 북마크 1, 2, 3 ...)
+     */
+    renderBookmarkBar = () => <BookmarkBar className="polestar-app-bookmark" />;
+
+    /**
+     * 브레드크럼을 렌더링하는 함수 (Home > List > App ...)
+     */
+    renderBreadcrumb = () => <Breadcrumb className="polestar-app-breadcrumb" />;
+
+    /**
+     * 컨텐츠 영역을 렌더링하는 함수
+     */
+    renderContents = () => (
+        <Content className="polestar-app-contents">
+            {this.renderBreadcrumb()}
+            {routes.map((route, i) => {
+                const key = i + 1;
+                return <RouteWithSubRoutes key={key} {...route} />;
+            })};
+        </Content>
+    );
+
+    /**
+     * 레이아웃의 푸터 영역을 렌더링하는 함수 (POLESTAR © NKIA, All Rights Reserved.)
+     */
+    renderFooter = () => <Footer />;
+
+    /**
+     * 헤더, 북마크, 브레드크럼, 컨텐츠, 푸터를 전체 레이아웃으로 합쳐서 렌더링 하는 함수
+     */
+    renderLayout = () => (
+        <Layout>
+            <Layout style={{ height: '100vh' }}>
+                {this.renderHeader()}
+                {this.renderBookmarkBar()}
+                {this.renderContents()}
+                {this.renderFooter()}
+            </Layout>
+            <Button
+                className="btn-left-bottom"
+                shape="circle"
+                icon="bars"
+                size="large"
+                htmlType="button"
+                onClick={() => {}}
+                type="default"
+            />
+            <Button
+                className="btn-right-bottom"
+                shape="circle"
+                icon="message"
+                size="large"
+                htmlType="button"
+                onClick={() => {}}
+                type="default"
+            />
+        </Layout>
+    );
+
 
     render() {
-        console.info("render Layout")
         return (
             <Router>
-                <Layout>
-                    <Layout style={{ height: "100vh" }}>
-                        <Header className="header" >
-                            <HeaderArea />
-                        </Header>
-                        <BookmarkArea />
-                        <Content>
-                            <Breadcrumb >
-                                <Breadcrumb.Item><Icon type="home" /> Home</Breadcrumb.Item>
-                                <Breadcrumb.Item>List</Breadcrumb.Item>
-                                <Breadcrumb.Item>App</Breadcrumb.Item>
-                            </Breadcrumb>
-                            <Route exact path="/" render={() => (
-                                <Home />
-                            )}/>
-                            {routes.map((route, i) => (
-                                <RouteWithSubRoutes key={i} {...route}/>
-                            ))}
-                        </Content>
-                        <Footer style={{textAlign: 'center',height: "4vh"   }}>
-                            POLESTAR © NKIA, All Rights Reserved.
-                        </Footer>
-                    </Layout>
-                    {/* <img src="/public/footer_bn3.png" className="hand" /> */}
-                    <Button className="btn-left-bottom" shape="circle" icon="bars" size="large" />
-                    <Button className="btn-right-bottom" shape="circle" icon="message" size="large" />
-                </Layout>
+                {this.renderLayout()}
             </Router>
-
-
-
         );
     }
 }

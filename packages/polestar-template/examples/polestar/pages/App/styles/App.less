@@ -13,7 +13,7 @@ body {
 
     // 헤더 영역
     .polestar-app-header {
-        min-width:800px;
+        min-width: 800px;
         overflow: hidden;
         padding: 0 0px;
         height: 40px;
@@ -30,15 +30,25 @@ body {
         .ant-menu-item {
             background-color: #052A68
         }
+
         .ant-menu-submenu {
             background-color: #052A68
         }
+
         .ant-menu.ant-menu-dark .ant-menu-item-selected {
             background-color: #052A68;
         }
+
         .ant-menu {
             line-height: 40px;
         }
+    }
+
+    // 북마크바 영역
+    .polestar-app-bookmark {
+        border-bottom: 1px solid #303030;
+        margin-bottom: 3px;
+        padding: 1px 5px 3px;
     }
 
     // 브레드크럼 영역
@@ -56,13 +66,6 @@ body {
         }
     }
 
-    // 북마크바 영역
-    .polestar-app-bookmark {
-        border-bottom: 1px solid #303030;
-        margin-bottom: 3px;
-        padding: 1px 5px 3px;
-    }
-
     // 컨텐츠 영역
     .polestar-app-contents {
         overflow: auto;
@@ -77,28 +80,28 @@ body {
         min-height: 40px;
         line-height: 30px;
         background: #052A68;
-        border-top:1px solid @gray-6;
-        // box-shadow:@shadow-1-up-1;
-        z-index: @zindex-footer ;
+        border-top: 1px solid @gray-6;
+        z-index: @zindex-footer;
     }
 
     // 화면 좌측 하단 사이드바 토글 버튼
     .polestar-app-sidebar-button {
         position: fixed;
-        left:5px;
-        bottom:4px;
-        z-index:10000;
+        left: 5px;
+        bottom: 4px;
+        z-index: 10000;
     }
+
     // 화면 우측 하단 챗봇 토글 버튼
     .polestar-app-chatbot-button {
         position: fixed;
-        right:5px;
-        bottom:4px;
-        z-index:10000;
+        right: 5px;
+        bottom: 4px;
+        z-index: 10000;
     }
 
     // polestar-app-container 내부에 있는 모든 ant button
-    .ant-btn{
+    .ant-btn {
         background-color: transparent;
     }
 
@@ -110,27 +113,27 @@ body {
     }
 }
 
-@media(min-width:@screen-sm-max){
-    .menu-bars{
+@media (min-width: @screen-sm-max) {
+    .menu-bars {
         display: flex;
         justify-content: center;
     }
 }
 
-@media(max-width:@screen-sm-max){
-    .menu-bars{
+@media (max-width: @screen-sm-max) {
+    .menu-bars {
         display: none
     }
 }
 
-@media(min-width:@screen-sm-max){
-    .menu-icon{
+@media (min-width: @screen-sm-max) {
+    .menu-icon {
         display: none
     }
 }
 
-@media(max-width:@screen-sm-max){
-    .menu-icon{
+@media (max-width: @screen-sm-max) {
+    .menu-icon {
         display: inline
     }
 }

@@ -14,23 +14,23 @@ class Header extends React.Component {
     }
 
     onMenuClick = ({ item, key, keyPath }) => {
-        if(key === '0') {
+        if (key === '0') {
             this.props.history.push('/home');
-        }else if(key === '1') {
+        } else if (key === '1') {
             this.props.history.push('/sample');
-        }else if(key === '2') {
+        } else if (key === '2') {
             this.props.history.push('/redux');
-        }else if(key === '3') {
+        } else if (key === '3') {
             this.props.history.push('/redux-async');
         }
-    }
+    };
 
     /**
      * 헤더 영역의 제품 로고, 제품명을 렌더링하는 함수 (POLESTAR)
      */
     renderLogo = () => (
         <Col lg={3} style={{ textAlign: 'left' }}>
-            <div className="polestar-app-logo" >POLESTAR</div>
+            <div className="polestar-app-logo">POLESTAR</div>
         </Col>
     );
 
@@ -91,7 +91,10 @@ class Header extends React.Component {
     );
 
     render() {
-        const { ...props } = this.props;
+        const {
+            staticContext,
+            ...props
+        } = this.props;
         return (
             <Layout.Header className="header" {...props}>
                 <Row type="flex" justify="space-between">

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Button, Layout } from 'antd';
 
-import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
+import RouteWithSubRoutes from 'RouteWithSubRoutes';
 
 import Header from './components/Header';
 import Footer from './components/Footer';

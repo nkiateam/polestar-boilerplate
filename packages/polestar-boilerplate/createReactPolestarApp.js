@@ -215,10 +215,10 @@ function run(appPath, appName, originalDirectory, useYarn) {
   // const allDevDependencies = Object.keys(templatePackageJson.devDependencies);
   // allDevDependencies.push(templateModule);
   
-  const allDependencies = ['react', 'react-dom', 'prop-types', 'react-router-dom',
+  const allDependencies = ['react', 'react-dom', 'prop-types', 'react-router', 'react-router-dom',
                             'redux', 'react-redux', 'redux-thunk', 'reselect', 'redux-logger',
                             'babel-polyfill',
-                            'axios', 'lodash', 'i18next', 
+                            'axios', 'lodash', 'i18next', 'antd',
                             'polestar-antd', 'polestar-utils',
                             'react-qtip', 'react-ztree', 'react-try-catch'];
   const allDevDependencies = [templateModule, 

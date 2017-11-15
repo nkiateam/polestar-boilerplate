@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+
 import { Layout, Menu, Button, Row, Col, Dropdown } from 'antd';
 
 class Header extends React.Component {
@@ -9,6 +11,18 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+    }
+
+    onMenuClick = ({ item, key, keyPath }) => {
+        if(key === '0') {
+            this.props.history.push('/home');
+        }else if(key === '1') {
+            this.props.history.push('/sample');
+        }else if(key === '2') {
+            this.props.history.push('/redux');
+        }else if(key === '3') {
+            this.props.history.push('/redux-async');
+        }
     }
 
     /**
@@ -25,7 +39,7 @@ class Header extends React.Component {
      * @param direction {'horizontal' || 'vertical'}
      */
     renderMenu = (direction = 'vertical') => (
-        <Menu theme="dark" mode={direction} defaultSelectedKeys={['1']}>
+        <Menu theme="dark" mode={direction} defaultSelectedKeys={['1']} onClick={this.onMenuClick}>
             <Menu.Item key="0">리소스관리</Menu.Item>
             <Menu.Item key="1">대시보드</Menu.Item>
             <Menu.Item key="2">토폴로지맵</Menu.Item>
@@ -90,4 +104,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);

@@ -8,12 +8,34 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import BookmarkBar from './components/BookmarkBar';
 import Breadcrumb from './components/Breadcrumb';
+import Sidebar from './components/Sidebar';
+
 import routes from './routes';
 import './styles/App.less';
 
 const { Content } = Layout;
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sidebar: false,
+            chat: false,
+        };
+    }
+
+    toggleSidebar = () => {
+        this.setState({
+            sidebar: !this.state.sidebar,
+        });
+    };
+
+    toggleChat = () => {
+        this.setState({
+            chat: !this.state.chat,
+        });
+    };
+
     /**
      * 레이아웃의 헤더 영역을 렌더링하는 함수 (POLESTAR 로고, 대메뉴, 각종 버튼들...)
      */
@@ -28,6 +50,39 @@ class App extends React.Component {
      * 브레드크럼을 렌더링하는 함수 (Home > List > App ...)
      */
     renderBreadcrumb = () => <Breadcrumb className="polestar-app-breadcrumb" />;
+
+    /**
+     * 사이드바를 렌더링하는 함수
+     */
+    renderSidebar = () => (
+        <Sidebar
+            show={this.state.sidebar}
+            size={350}
+        >
+            <div>메뉴 1</div>
+            <div>메뉴 2</div>
+            <div>메뉴 3</div>
+            <div>메뉴 4</div>
+            <div>메뉴 5</div>
+        </Sidebar>
+    );
+
+    /**
+     * 챗봇 윈도우를 렌더링하는 함수
+     */
+    renderChat = () => (
+        <Sidebar
+            position="right"
+            show={this.state.chat}
+            size={350}
+        >
+            <div>챗봇 1</div>
+            <div>챗봇 2</div>
+            <div>챗봇 3</div>
+            <div>챗봇 4</div>
+            <div>챗봇 5</div>
+        </Sidebar>
+    );
 
     /**
      * 컨텐츠 영역을 렌더링하는 함수
@@ -64,7 +119,7 @@ class App extends React.Component {
                 icon="bars"
                 size="large"
                 htmlType="button"
-                onClick={() => {}}
+                onClick={this.toggleSidebar}
                 type="default"
             />
             <Button
@@ -73,12 +128,13 @@ class App extends React.Component {
                 icon="message"
                 size="large"
                 htmlType="button"
-                onClick={() => {}}
+                onClick={this.toggleChat}
                 type="default"
             />
+            {this.renderSidebar()}
+            {this.renderChat()}
         </Layout>
     );
-
 
     render() {
         return (

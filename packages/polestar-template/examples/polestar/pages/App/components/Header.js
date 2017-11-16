@@ -15,13 +15,19 @@ class Header extends React.Component {
 
     onMenuClick = ({ item, key, keyPath }) => {
         if (key === '0') {
-            this.props.history.push('/home');
+            this.props.history.push('/dashboard');
         } else if (key === '1') {
-            this.props.history.push('/sample');
+            this.props.history.push('/crud');
         } else if (key === '2') {
-            this.props.history.push('/redux');
+            this.props.history.push('/wizard');
         } else if (key === '3') {
-            this.props.history.push('/redux-async');
+            this.props.history.push('/collectionSearch');
+        } else if (key === '4') {
+            this.props.history.push('/execSearch');
+        } else if (key === '5') {
+            this.props.history.push('/fileManager');
+        } else if (key === '6') {
+            this.props.history.push('/settings');
         }
     };
 
@@ -40,13 +46,13 @@ class Header extends React.Component {
      */
     renderMenu = (direction = 'vertical') => (
         <Menu theme="dark" mode={direction} defaultSelectedKeys={['1']} onClick={this.onMenuClick}>
-            <Menu.Item key="0">리소스관리</Menu.Item>
-            <Menu.Item key="1">대시보드</Menu.Item>
-            <Menu.Item key="2">토폴로지맵</Menu.Item>
-            <Menu.Item key="3">성능통계</Menu.Item>
-            <Menu.Item key="4">알람콘솔</Menu.Item>
-            <Menu.Item key="5">이벤트뷰어</Menu.Item>
-            <Menu.Item key="6">시스템관리</Menu.Item>
+            <Menu.Item key="0">대시보드</Menu.Item>
+            <Menu.Item key="1">CRUD</Menu.Item>
+            <Menu.Item key="2">Wizard</Menu.Item>
+            <Menu.Item key="3">수집조회</Menu.Item>
+            <Menu.Item key="4">실행조회</Menu.Item>
+            <Menu.Item key="5">파일매니저</Menu.Item>
+            <Menu.Item key="6">설정</Menu.Item>
         </Menu>
     );
 

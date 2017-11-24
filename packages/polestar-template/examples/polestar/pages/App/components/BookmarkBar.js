@@ -16,19 +16,19 @@ class BookmarkBar extends React.Component {
         return (
             <Row {...props}>
                 <Col span={24} >
-                    <Button icon="book" style={{ border: '0px' }} ghost>
+                    <Button icon="book" ghost>
                         최근 방문
                     </Button>
-                    <Button icon="book" style={{ border: '0px' }} ghost>
+                    <Button icon="book" ghost>
                         자주 방문
                     </Button>
-                    <Button icon="book" style={{ border: '0px' }} ghost>
+                    <Button icon="book" ghost>
                         북마크 #1
                     </Button>
-                    <Button icon="book" style={{ border: '0px' }} ghost>
+                    <Button icon="book" ghost>
                         북마크 #2
                     </Button>
-                    <Button icon="book" style={{ border: '0px' }} ghost>
+                    <Button icon="book" ghost>
                         북마크 #3
                     </Button>
                 </Col>

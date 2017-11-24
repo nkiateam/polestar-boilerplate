@@ -1,5 +1,6 @@
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
 @import "../color/colors";
+@import "../../fonts/noto/noto.css";
 
 // The prefix to use on all css classes from ant.
 @ant-prefix             : ant;
@@ -30,11 +31,11 @@
 // ---
 
 // Background color for `<body>`
-@body-background: #fff;
+@body-background: #ced5dd;
 // Base background color for most components
 @component-background: #fff;
-@font-family-no-number: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family: "Helvetica Neue For Number", @font-family-no-number;
+@font-family-no-number: "Noto Sans KR";
+@font-family: "Noto Sans KR", @font-family-no-number;
 @code-family            : Consolas, Menlo, Courier, monospace;
 @heading-color: fade(#000, 85%);
 @text-color: fade(#000, 65%);
@@ -43,7 +44,14 @@
 @text-color-dark        : fade(#fff, 91%);
 @text-color-secondary-dark: fade(#fff, 67%);
 @font-size-base         : 12px;
+@font-size-sm           : @font-size-base - 2px;
+@font-size-sm1          : @font-size-base - 4px;
 @font-size-lg           : @font-size-base + 2px;
+@font-size-lg1          : @font-size-base + 4px;
+@font-size-lg2          : @font-size-base + 6px;
+@font-size-lg3          : @font-size-base + 8px;
+@font-size-lg4          : @font-size-base + 18px;
+@font-size-lg5          : @font-size-base + 28px;
 @line-height-base       : 1.5;
 @border-radius-base: 4px;
 @border-radius-sm: 2px;
@@ -361,3 +369,6 @@
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
+
+// Bookmark
+@bookmark-bar-bg: #ebf0f3;

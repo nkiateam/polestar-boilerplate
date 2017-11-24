@@ -1,10 +1,18 @@
 @import '../../../styles/index';
 
-body {
+html{
+    body {
+        font-family: @font-family;
+        font-weight: normal;
+        font-style: normal;
+        font-size: @font-size-base;  /* Preferred icon size */
+        background: @body-background;
+    }
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    overflow-x: hidden;
 }
 
 // 컨테이너 영역
@@ -13,57 +21,78 @@ body {
 
     // 헤더 영역
     .polestar-app-header {
-        min-width: 800px;
         overflow: hidden;
-        padding: 0 0px;
+        min-width: 800px;
         height: 40px;
+        padding: 0;
+        background: @mnblue-6;
         line-height: 40px;
-        background: #052A68;
 
         // POLESTAR
         .polestar-app-logo {
-            text-align: left;
-            font-size: 18px;
-            padding-left: 10px;
+            margin: 0 0 0 20px;
+            color: @mono-0;
+            font-size: @font-size-lg;
         }
 
         .ant-menu-item {
-            background-color: #052A68
+            top: 0;
+            margin-top: 0;
+            background: @mnblue-6;
+            color: @mnblue-3;
         }
 
-        .ant-menu-submenu {
-            background-color: #052A68
-        }
-
-        .ant-menu.ant-menu-dark .ant-menu-item-selected {
-            background-color: #052A68;
+        .ant-menu-horizontal > .ant-menu-item:hover {
+            background: @blue-6;
+            color: @mono-0;
         }
 
         .ant-menu {
             line-height: 40px;
         }
 
+        .polestar-navbar-right {
+            padding: 4px 0 0 0;
+            border-left: 1px solid @mnblue-5;
+            text-align: center;
+            .ant-btn {
+                font-size: @font-size-lg2;
+                border: unset;
+            }
+            .ant-btn:hover, .ant-btn-active {
+                color: @blue-4;
+            }
+        }
+
     }
 
     // 북마크바 영역
     .polestar-app-bookmark {
-        border-bottom: 1px solid #303030;
-        margin-bottom: 3px;
-        padding: 1px 5px 3px;
+        padding: 5px;
+        background: @bookmark-bar-bg;
+        border-bottom: 1px solid @mnblue-2;
+        
+        .ant-btn {
+            border: unset;
+            color: @mnblue-5;
+            font-size: @font-size-base;
+            transition: unset;
+        }
+        .ant-btn:hover, .ant-btn-active {
+            background: @mnblue-2 !important;
+            color: @mnblue-7;
+        }
     }
 
     // 브레드크럼 영역
     .polestar-app-breadcrumb {
-        color: @gray-5;
-        height: 35px;
-        margin-right: -5px;
-        margin-left: -5px;
-        padding: 8px 10px;
-        background-color: transparent;
-        border-bottom: 1px solid @gray-6;
+        padding: 5px 20px;
+        background: @mono-1;
+        border-bottom: 1px solid @mono-2;
+        color: @mono-6;
 
         .ant-breadcrumb-separator {
-            color: @gray-5;
+            color: @mono-4;
         }
     }
 
@@ -84,17 +113,16 @@ body {
     .polestar-app-contents {
         overflow: auto;
         margin: 0;
-        padding: 0 5px 0 5px;
     }
 
     // 푸터 영역
     .polestar-app-footer {
-        padding: 5px;
-        font-size: 12px;
         min-height: 40px;
+        background: @mnblue-6;
+        padding: 5px;
+        color: @mnblue-3;
+        font-size: 12px;
         line-height: 30px;
-        background: #052A68;
-        border-top: 1px solid @gray-6;
         z-index: @zindex-footer;
     }
 
@@ -103,7 +131,13 @@ body {
         position: fixed;
         left: 5px;
         bottom: 4px;
+        border: unset;
+        font-size: @font-size-lg2 !important;
         z-index: 1001;
+    }
+
+    .polestar-app-sidebar-button:hover, .polestar-app-sidebar-button:active {
+        color: @blue-4;
     }
 
     // 화면 우측 하단 챗봇 토글 버튼
@@ -111,20 +145,26 @@ body {
         position: fixed;
         right: 5px;
         bottom: 4px;
+        border: unset;
+        font-size: @font-size-lg2 !important;
         z-index: 1001;
+    }
+
+    .polestar-app-chatbot-button:hover, .polestar-app-chatbot-button:active {
+        color: @blue-4;
     }
 
     // polestar-app-container 내부에 있는 모든 ant button
     .ant-btn {
-        background-color: transparent;
+        background: transparent;
+        color: @mono-0;
+        font-size: @font-size-base;
+    }
+    .ant-btn-clicked:after {
+        -webkit-animation: unset;
+                animation: unset;
     }
 
-    // polestar-app-container 내부에 있는 모든 ant ghost button
-    .ant-btn-background-ghost {
-        background: transparent !important;
-        border-color: #fff;
-        color: black;
-    }
 }
 
 // 드롭다운 메뉴 스타일

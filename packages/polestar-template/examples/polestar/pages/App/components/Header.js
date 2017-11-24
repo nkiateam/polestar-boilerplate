@@ -3,6 +3,8 @@ import { withRouter } from 'react-router';
 
 import { Layout, Menu, Button, Row, Col, Dropdown } from 'antd';
 
+import './../styles/App.less';
+
 class Header extends React.Component {
     static propTypes = {};
 
@@ -35,7 +37,7 @@ class Header extends React.Component {
      * 헤더 영역의 제품 로고, 제품명을 렌더링하는 함수 (POLESTAR)
      */
     renderLogo = () => (
-        <Col lg={3} style={{ textAlign: 'left' }}>
+        <Col lg={4} style={{ textAlign: 'left' }}>
             <div className="polestar-app-logo">POLESTAR</div>
         </Col>
     );
@@ -45,7 +47,7 @@ class Header extends React.Component {
      * @param direction {'horizontal' || 'vertical'}
      */
     renderMenu = (direction = 'vertical') => (
-        <Menu theme="dark" mode={direction} defaultSelectedKeys={['1']} onClick={this.onMenuClick}>
+        <Menu mode={direction} defaultSelectedKeys={['1']} onClick={this.onMenuClick}>
             <Menu.Item key="0">대시보드</Menu.Item>
             <Menu.Item key="1">CRUD</Menu.Item>
             <Menu.Item key="2">Wizard</Menu.Item>
@@ -60,14 +62,7 @@ class Header extends React.Component {
      * 헤더 영역의 대메뉴 목록을 렌더링하는 함수 (리소스관리, 대시보드, 토폴로지맵 ...)
      */
     renderTopMenu = () => (
-        <Col
-            xs={2}
-            sm={2}
-            md={17}
-            lg={18}
-            className="menu-bars"
-            style={{ textAlign: 'center', padding: '1px 0px 1px 0px' }}
-        >
+        <Col xs={2} sm={2} md={17} lg={16} className="menu-bars">
             {this.renderMenu('horizontal')}
         </Col>
     );
@@ -78,7 +73,7 @@ class Header extends React.Component {
      */
     renderDropdownMenu = () => (
         <Dropdown overlay={this.renderMenu('vertical')}>
-            <Button shape="circle" icon="menu-fold" className="menu-icon" style={{ marginRight: '6px' }} />
+            <Button icon="menu-fold" className="menu-icon" style={{ marginRight: '6px' }} />
         </Dropdown>
     );
 
@@ -86,13 +81,13 @@ class Header extends React.Component {
      * 헤더 영역의 우측 메뉴버튼들을 렌더링하는 함수 (검색, 알람, 사용자 ...)
      */
     renderMenuButtons = () => (
-        <Col xs={16} sm={16} md={4} lg={3} style={{ textAlign: 'right' }}>
+        <Col xs={16} sm={16} md={4} lg={4} className="polestar-navbar-right">
             {this.renderDropdownMenu()}
-            <Button shape="circle" icon="search" style={{ marginRight: '6px' }} />
-            <Button shape="circle" icon="bell" style={{ marginRight: '6px' }} />
-            <Button shape="circle" icon="user" style={{ marginRight: '6px' }} />
-            <Button shape="circle" icon="question" style={{ marginRight: '6px' }} />
-            <Button shape="circle" icon="setting" style={{ marginRight: '6px' }} />
+            <Button icon="search" />
+            <Button icon="bell" />
+            <Button icon="user" />
+            <Button icon="question" />
+            <Button icon="setting" />
         </Col>
     );
 

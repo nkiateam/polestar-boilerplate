@@ -3,6 +3,8 @@ import TryCatch from 'react-try-catch';
 
 import { Box, Header, Button, Grid, Form, Wizard, Footer } from 'polestar-ui-kit';
 
+import './style/Wizard.less';
+
 const { GridBox, FormBox } = Box;
 const { GridHeader, FormHeader } = Header;
 const { FormFooter } = Footer;

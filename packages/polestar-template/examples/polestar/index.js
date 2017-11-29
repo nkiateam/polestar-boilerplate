@@ -12,6 +12,9 @@ import 'styles/index.less';
 // Pages가 Styles import 보다 아래 있어야 함 ----------------
 import App from 'pages/App';
 //----------------------------------------------------------
+import { LicenseManager } from 'ag-grid-enterprise/main';
+LicenseManager.setLicenseKey('NKIA_MultiApp_1Devs23_October_2018__MTU0MDI0OTIwMDAwMA==fcf16fa1767ccc91c657a7f072dba263');
+
 
 import configureStore from './store/configureStore';
 

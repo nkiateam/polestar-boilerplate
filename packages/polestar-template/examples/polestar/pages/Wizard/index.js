@@ -67,7 +67,7 @@ class WizardExample extends React.Component {
                                         id: 'user_name3',
                                         label: '운영부서',
                                         required: true,
-                                    }, {
+                                    }], [{
                                         type: 'email',
                                         id: 'user_name2',
                                         label: '담당자',
@@ -77,8 +77,27 @@ class WizardExample extends React.Component {
                             }}
                         />
                     </Wizard.Step>
-                    <Wizard.Step title="확인" description="입력된 내용을 확인하고 최종 등록합니다.">
-                        최종 완료
+                    <Wizard.Step title="장비설정" description="장비 설정을 등록합니다.">
+                        <AntForm
+                            wrappedComponentRef={(form) => {
+                                this.form = form;
+                            }}
+                            schema={{
+                                fields: [
+                                    [{
+                                        type: 'text',
+                                        id: 'user_name',
+                                        label: '수집주기',
+                                        required: false,
+                                    }],[{
+                                        type: 'text',
+                                        id: 'user_name1',
+                                        label: '알람설정',
+                                        required: false,
+                                    },]
+                                ],
+                            }}
+                        />
                     </Wizard.Step>
                 </Wizard>
             </TryCatch>

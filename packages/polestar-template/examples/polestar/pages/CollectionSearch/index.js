@@ -58,10 +58,11 @@ class CollectionSearch extends React.Component {
                             <Button>Second #3</Button>,
                         ]}
                     />
-                    <AgGrid
+                    <Grid.AgGrid
                         _requestUrl={'http://192.168.232.211:9999/grid/performance/getData'}
                         _reqeustRowsFilterKey={'rows'}
                         _requestTotalFilterKey={'total'}
+                        _enableInfinite={false}
                         columnDefs={this.createColumnDefs()}
                         onGridReady={this.onGridReady}
                     />

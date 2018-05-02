@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const POLESTAR_UI_KIT_PACKAGE_PATH = path.resolve(__dirname, '../../../node_modules/polestar-ui-kit/lib/packages');
 let port = 3333;
 
 function isDirectory(dir) {
@@ -117,7 +117,11 @@ module.exports = {
       commons: path.resolve(__dirname, 'polestar/commons/'),
 			pages: path.resolve(__dirname, 'polestar/pages/'),
 			services: path.resolve(__dirname, 'polestar/services/'),
-      styles: path.resolve(__dirname, 'polestar/styles/')
+      styles: path.resolve(__dirname, 'polestar/styles/'),
+        'react-ztree': path.resolve(POLESTAR_UI_KIT_PACKAGE_PATH, './react-ztree/src/'),
+        'react-qtip': path.resolve(POLESTAR_UI_KIT_PACKAGE_PATH, './react-qtip/src/'),
+        'polestar-icons': path.resolve(POLESTAR_UI_KIT_PACKAGE_PATH, './polestar-icons/src/'),
+        'react-try-catch': path.resolve(POLESTAR_UI_KIT_PACKAGE_PATH, './react-try-catch/src/'),
     }
 	},
 

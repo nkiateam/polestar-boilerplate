@@ -88,7 +88,7 @@ class App extends React.Component {
      * 컨텐츠 영역을 렌더링하는 함수
      */
     renderContents = () => (
-        <Content className="polestar-app-contents">
+        <Content className="polestar-app-contents" style={{height: '100%'}}>
             {this.renderBreadcrumb()}
             {routes.map((route, i) => {
                 const key = i + 1;

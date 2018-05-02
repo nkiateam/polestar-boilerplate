@@ -12,7 +12,6 @@ import 'styles/index.less';
 // Pages가 Styles import 보다 아래 있어야 함 ----------------
 import App from 'pages/App';
 //----------------------------------------------------------
-
 import configureStore from './store/configureStore';
 
 const store = configureStore();

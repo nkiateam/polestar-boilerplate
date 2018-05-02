@@ -49,11 +49,11 @@ class Header extends React.Component {
     renderMenu = (direction = 'vertical') => (
         <Menu mode={direction} defaultSelectedKeys={['1']} onClick={this.onMenuClick}>
             <Menu.Item key="0">대시보드</Menu.Item>
-            <Menu.Item key="1">CRUD</Menu.Item>
             <Menu.Item key="2">Wizard</Menu.Item>
-            <Menu.Item key="3">수집조회</Menu.Item>
-            <Menu.Item key="4">실행조회</Menu.Item>
-            <Menu.Item key="5">파일매니저</Menu.Item>
+            <Menu.Item key="1">CRUD(Infinite Grid)</Menu.Item>
+            <Menu.Item key="3">No Paging Grid</Menu.Item>
+            <Menu.Item key="4">그룹 Form 화면</Menu.Item>
+            <Menu.Item key="5">Chart</Menu.Item>
             <Menu.Item key="6">설정</Menu.Item>
         </Menu>
     );

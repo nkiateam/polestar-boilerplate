@@ -7,9 +7,9 @@ class ReduxPage extends Component {
     render() {
         return (
             <div style={ {textAlign: 'center'} }>
-                <Counter/>
-                <Option/>
-                <Buttons/>
+                <Counter />
+                <Option />
+                <Buttons />
             </div>
         );
     }

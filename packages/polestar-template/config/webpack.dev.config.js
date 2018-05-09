@@ -1,8 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
-const os = require('os');
+// const os = require('os');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const postcssFlexbugs = require('postcss-flexbugs-fixes');
 
 // const appDirectory = fs.realpathSync(process.cwd());
 const appDirectory = process.cwd();
@@ -10,55 +12,64 @@ const TEMP_TYPE = process.env.TEMP_TYPE ? process.env.TEMP_TYPE : 'template';
 let excludeModule = '';
 let port = 3000;
 
-const resolveApp =  relativePath => {
-    
-    if(process.env.NODE_ENV === 'development') {
+const resolveApp = relativePath => {
+    let _path;
+    if (process.env.NODE_ENV === 'development') {
         _path = path.resolve(appDirectory, 'packages/polestar-template', TEMP_TYPE, relativePath);
-    }else if(process.env.NODE_ENV === 'production') {
+    } else if (process.env.NODE_ENV === 'production') {
         _path = path.resolve(appDirectory, 'node_modules/polestar-template', TEMP_TYPE, relativePath);
         excludeModule = '!polestar-template';
         port = 4000;
-    }else {
+    } else {
         _path = path.resolve(appDirectory, relativePath);
     }
-    
+
     return _path;
-}
+};
 
 module.exports = {
-	entry: {
-		app: resolveApp('src/index.js')
+    entry: {
+        app: resolveApp('src/index.js'),
+        vendor: [
+            'react',
+            'react-dom',
+            'react-router-dom',
+            'react-router',
+            'redux',
+            'react-redux',
+            'redux-thunk',
+        ],
     },
-    
-	output: {
-        filename: '[name].js',
-		path: resolveApp('build'),
-        publicPath: '/'
+
+    output: {
+        filename: '[name].[chunkhash].js',
+        path: resolveApp('build'),
+        publicPath: '/',
     },
 
     devtool: 'inline-source-map',
 
-	module: {
+    module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: [
-                    path.resolve(__dirname, 'node_modules', excludeModule)
+                    path.resolve(__dirname, 'node_modules', excludeModule),
                 ],
                 loader: 'babel-loader',
                 options: {
-                    extends: path.resolve(__dirname, '.babelrc')
-                }
+                    extends: path.resolve(__dirname, '.babelrc'),
+                },
             },
             {
                 test: /\.less$/,
                 use: [{
-                    loader: 'style-loader' // creates style nodes from JS strings
+                    loader: 'style-loader', // creates style nodes from JS strings
                 }, {
-                    loader: 'css-loader' // translates CSS into CommonJS
+                    loader: 'css-loader', // translates CSS into CommonJS
                 }, {
-                    loader: 'less-loader' // compiles Less to CSS
-                }]
+                    loader: 'less-loader', // compiles Less to CSS
+                }],
             },
             {
                 test: /\.css$/,
@@ -75,7 +86,7 @@ module.exports = {
                         options: {
                             ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
                             plugins: () => [
-                                require('postcss-flexbugs-fixes'),
+                                postcssFlexbugs, // require('postcss-flexbugs-fixes'),
                                 autoprefixer({
                                     browsers: [
                                         '>1%',
@@ -116,7 +127,7 @@ module.exports = {
                     name: 'static/media/[name].[hash:8].[ext]',
                 },
             },
-        ]
+        ],
     },
 
     resolve: {
@@ -125,11 +136,22 @@ module.exports = {
             commons: resolveApp('src/commons/'),
             pages: resolveApp('src/pages/'),
             services: resolveApp('src/services/'),
-            styles: resolveApp('src/styles/')
-        }
+            styles: resolveApp('src/styles/'),
+        },
     },
 
     plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: '[name].[chunkhash].js',
+            minChunks: (module) => {
+                // this assumes your vendor imports exist in the node_modules directory
+                return module.context && module.context.includes('node_modules');
+            },
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+        }),
         new HtmlWebpackPlugin({
             inject: true,
             template: resolveApp('src/index.html'),
@@ -139,8 +161,8 @@ module.exports = {
     devServer: {
         inline: true,
         host: 'localhost',
-        port: port,
+        port,
         contentBase: resolveApp(''),
         historyApiFallback: true,
-    }
+    },
 };

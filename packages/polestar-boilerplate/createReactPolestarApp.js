@@ -218,9 +218,8 @@ function run(appPath, appName, originalDirectory, useYarn) {
   const allDependencies = ['react', 'react-dom', 'prop-types', 'react-router', 'react-router-dom',
                             'redux', 'react-redux', 'redux-thunk', 'reselect', 'redux-logger',
                             'babel-polyfill',
-                            'axios', 'lodash', 'i18next', 'antd',
-                            'polestar-ui-kit', 'polestar-antd', 'polestar-utils', 'polestar-icons',
-                            'react-qtip', 'react-ztree', 'react-try-catch'];
+                            'axios', 'lodash',
+                            'polestar-ui-kit', 'polestar-utils', 'polestar-icons'];
   const allDevDependencies = [templateModule, 
                               'babel-core', 'babel-loader', 'babel-preset-env', 'babel-preset-react', 
                               'babel-eslint',

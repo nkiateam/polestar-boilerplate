@@ -6,7 +6,7 @@ import Option from './components/Option';
 class ReduxPage extends Component {
     render() {
         return (
-            <div style={ {textAlign: 'center'} }>
+            <div style={{ textAlign: 'center' }}>
                 <Counter />
                 <Option />
                 <Buttons />

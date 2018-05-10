@@ -226,7 +226,7 @@ function run(appPath, appName, originalDirectory, useYarn) {
                               'babel-plugin-transform-object-rest-spread', 'babel-plugin-transform-class-properties',
                               'babel-plugin-transform-async-to-generator',
                               'rimraf', 'cross-env',
-                              'webpack', 'webpack-dev-server', 
+                              'webpack@3.8.1', 'webpack-dev-server@2.9.4', 
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',
                               'style-loader', 'css-loader', 'postcss-flexbugs-fixes', 'postcss-loader', 'autoprefixer',
                               'less', 'less-loader',

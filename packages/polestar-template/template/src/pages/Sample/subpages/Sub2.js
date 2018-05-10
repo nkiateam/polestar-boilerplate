@@ -11,9 +11,9 @@ const Sub2 = ({ routes }) => (
         </ul>
 
         {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route}/>
+            <RouteWithSubRoutes key={i} {...route} />
         ))}
     </div>
-)
+);
 
 export default Sub2;

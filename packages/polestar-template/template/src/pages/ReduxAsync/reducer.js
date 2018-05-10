@@ -3,14 +3,15 @@ import { SELECT_REDDIT, POSTS_PENDING, POSTS_SUCCESS } from './constants';
 const posts = (state = { isFetching: false, items: [] }, action) => {
     switch (action.type) {
         case POSTS_PENDING:
-            return { ...state, isFetching: true }
+            return { ...state, isFetching: true };
 
         case POSTS_SUCCESS:
-            return { ...state,
+            return {
+                ...state,
                 isFetching: false,
                 items: action.payload,
-                lastUpdated: action.receivedAt
-            }
+                lastUpdated: action.receivedAt,
+            };
         default:
             return state;
     }
@@ -30,9 +31,10 @@ export const postsByReddit = (state = { }, action) => {
         case POSTS_PENDING:
         case POSTS_SUCCESS:
             console.log('POSTS_SUCCESS', action);
-            return { ...state,
-                [action.reddit]: posts(state[action.reddit], action)
-            }
+            return {
+                ...state,
+                [action.reddit]: posts(state[action.reddit], action),
+            };
         default:
             return state;
     }

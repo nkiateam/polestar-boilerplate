@@ -6,26 +6,28 @@ class Buttons extends Component {
     render() {
         return (
             <div>
-                <button type="button"
-                        onClick={ this.props.onIncrement }>
-                        +
+                <button
+                    type="button"
+                    onClick={this.props.onIncrement}
+                >
+                    +
                 </button>
-                <button type="button"
-                        onClick={ this.props.onDecrement }>
-                        -
+                <button
+                    type="button"
+                    onClick={this.props.onDecrement}
+                >
+                    -
                 </button>
             </div>
-        )
+        );
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         onIncrement: () => dispatch(increment()),
-        onDecrement: () => dispatch(decrement())
-    }
-}
+        onDecrement: () => dispatch(decrement()),
+    };
+};
 
-Buttons = connect(undefined, mapDispatchToProps)(Buttons);
-
-export default Buttons;
+export default connect(undefined, mapDispatchToProps)(Buttons);

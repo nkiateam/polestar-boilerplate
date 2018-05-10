@@ -9,7 +9,6 @@ import logo from 'styles/images/polestarlogo.png';
 import routes from './routes';
 
 class App extends Component {
-
     static propTypes = {
         width: PropTypes.number,
     };
@@ -38,15 +37,19 @@ class App extends Component {
                             <Link to="/redux">Redux</Link>
                         </li>
                         <li className="menu-link">
-                            <Link to="/redux-async">Redux 비동기</Link>               
+                            <Link to="/redux-async">Redux 비동기</Link>
                         </li>
                     </ul>
                     <div className="content">
-                        <Route exact path="/" render={() => (
-                            <Home />
-                        )}/>
+                        <Route
+                            exact
+                            path="/"
+                            render={() => (
+                                <Home />
+                            )}
+                        />
                         {routes.map((route, i) => (
-                            <RouteWithSubRoutes key={i} {...route}/>
+                            <RouteWithSubRoutes key={i} {...route} />
                         ))}
                     </div>
                 </div>

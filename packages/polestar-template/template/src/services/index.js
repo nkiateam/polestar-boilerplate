@@ -1,3 +1,8 @@
-import * as _api from './api';
+import * as api from './api';
+import * as apiService from './apiService';
 
-export const api = _api;
+// export const api = _api;
+export {
+    api,
+    apiService,
+};

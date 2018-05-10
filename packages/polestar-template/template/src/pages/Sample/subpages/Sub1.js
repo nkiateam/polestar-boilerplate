@@ -6,6 +6,6 @@ const Sub1 = () => (
         <h2>Sub1</h2>
         <Comp />
     </div>
-)
+);
 
 export default Sub1;

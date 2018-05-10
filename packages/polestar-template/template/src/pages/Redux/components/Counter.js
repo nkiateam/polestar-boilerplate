@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Counter extends Component {
@@ -10,13 +10,10 @@ class Counter extends Component {
     }
 }
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-        value: state.counter.value
+        value: state.counter.value,
     };
-}
+};
 
-Counter = connect(mapStateToProps)(Counter);
-
-export default Counter;
-// export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps)(Counter);

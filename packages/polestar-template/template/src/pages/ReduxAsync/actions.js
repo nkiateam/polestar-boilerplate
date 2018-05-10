@@ -1,4 +1,4 @@
-import { POSTS, POSTS_PENDING, POSTS_SUCCESS, POSTS_FAILURE, SELECT_REDDIT } from './constants';
+import { /* POSTS, */ POSTS_PENDING, POSTS_SUCCESS, POSTS_FAILURE, SELECT_REDDIT } from './constants';
 import { api } from '../../services';
 
 // export function selectReddit(reddit) {
@@ -7,7 +7,7 @@ import { api } from '../../services';
 //         reddit
 //     }
 // }
-  
+
 // export function invalidateReddit(reddit) {
 //     return {
 //         type: INVALIDATE_REDDIT,
@@ -31,15 +31,6 @@ import { api } from '../../services';
 //     }
 // }
 
-export const selectReddit = (reddit) => (dispatch, getState) => {
-    const { selectedReddit, postsByReddit } = getState();
-    dispatch({ type: SELECT_REDDIT, reddit });
-
-    if(selectedReddit !== reddit && !postsByReddit[reddit]) {
-        dispatch(fetchPosts(reddit));
-    }
-}
-
 // redux-promise-middleware
 // export const fetchPosts = (reddit) => ({
 //     type: POSTS,
@@ -50,19 +41,28 @@ export const selectReddit = (reddit) => (dispatch, getState) => {
 export const fetchPosts = (reddit) => dispatch => {
     dispatch({ type: POSTS_PENDING, reddit });
 
-    return api.fetchPostsApi(reddit).then(
-        (response) => {
+    return api.fetchPostsApi(reddit)
+        .then((response) => {
             dispatch({
                 type: POSTS_SUCCESS,
                 payload: response,
                 reddit,
-                receivedAt: Date.now()
+                receivedAt: Date.now(),
             });
-        }
-    ).catch(error => { 
-        dispatch({
-            type: POSTS_FAILURE,
-            payload: error
+        })
+        .catch(error => {
+            dispatch({
+                type: POSTS_FAILURE,
+                payload: error,
+            });
         });
-    });
-}
+};
+
+export const selectReddit = (reddit) => (dispatch, getState) => {
+    const { selectedReddit, postsByReddit } = getState();
+    dispatch({ type: SELECT_REDDIT, reddit });
+
+    if (selectedReddit !== reddit && !postsByReddit[reddit]) {
+        dispatch(fetchPosts(reddit));
+    }
+};

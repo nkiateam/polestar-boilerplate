@@ -5,10 +5,16 @@ module.exports = {
     "indent": [1, 4, { "SwitchCase": 1 }],
     "arrow-body-style": "off", // ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
 	  "arrow-parens": "off", // Incompatible with prettier
+	  "linebreak-style": 'off', // Don't play nicely with Windows.
 	  //"no-useless-constructor": "off",
-	  //"no-console": "error", // airbnb is using warn
+    //"no-console": "error", // airbnb is using warn
+    "no-underscore-dangle": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "no-plusplus": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
     "react/jsx-indent": [1, 4],
-    "linebreak-style": 'off', // Don't play nicely with Windows.
     "react/jsx-filename-extension": ["error", { extensions: [".js"] }], // airbnb is using .jsx
     "react/prefer-stateless-function": "off",
     "react/prop-types": "off",
@@ -17,12 +23,10 @@ module.exports = {
 	  "react/require-default-props": "off", // airbnb use error
     "react/default-props-match-prop-types": "off",
     "jsx-a11y/href-no-hash": "off",
-    "import/no-extraneous-dependencies": "off",
-    "import/no-unresolved": "off",
-    "import/extensions": "off",
-    "no-underscore-dangle": "off",
-    "no-param-reassign": ["error", { "props": false }],
-    "no-plusplus": "off"
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }]
   },
   "settings" : {
 	  "import/resolver": {

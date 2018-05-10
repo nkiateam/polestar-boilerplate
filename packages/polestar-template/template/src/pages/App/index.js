@@ -23,7 +23,7 @@ class App extends Component {
                 <div>
                     <div className="menulogo">
                         <a href="/">
-                            <img src={logo} />
+                            <img src={logo} alt="POLESTAR LOGO" />
                         </a>
                     </div>
                     <ul className="menunav-list">

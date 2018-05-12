@@ -7,6 +7,7 @@ import Home from 'pages/Home';
 import logo from 'styles/images/polestarlogo.png';
 
 import routes from './routes';
+import Header from './components/Header';
 
 class App extends Component {
     static propTypes = {
@@ -26,6 +27,7 @@ class App extends Component {
                             <img src={logo} alt="POLESTAR LOGO" />
                         </a>
                     </div>
+                    <Header />
                     <ul className="menunav-list">
                         <li className="menu-link">
                             <Link to="/home">Home</Link>

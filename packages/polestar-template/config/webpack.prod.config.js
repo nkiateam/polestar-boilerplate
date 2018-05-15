@@ -105,16 +105,7 @@ module.exports = {
             },
             // file-loader
             {
-                exclude: [
-                    /\.html$/,
-                    /\.(js|jsx)$/,
-                    /\.css$/,
-                    /\.json$/,
-                    /\.bmp$/,
-                    /\.gif$/,
-                    /\.jpe?g$/,
-                    /\.png$/,
-                ],
+                exclude: [/\.(js|jsx)$/, /\.html$/, /\.less$/, /\.css$/, /\.json$/],
                 loader: require.resolve('file-loader'),
                 options: {
                     name: 'static/media/[name].[hash:8].[ext]',

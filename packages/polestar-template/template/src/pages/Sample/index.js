@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, /* Route, */ Link } from 'react-router-dom';
+import uuid from 'uuid/v4';
 
 import RouteWithSubRoutes from 'RouteWithSubRoutes';
 import routes from './routes';
@@ -13,8 +14,8 @@ const Sample = () => (
                 <li><Link to="/sample/sub2">Sub2</Link></li>
             </ul>
 
-            {routes.map((route, i) => (
-                <RouteWithSubRoutes key={i} {...route} />
+            {routes.map((route/* , i */) => (
+                <RouteWithSubRoutes key={uuid()} {...route} />
             ))}
         </div>
     </Router>

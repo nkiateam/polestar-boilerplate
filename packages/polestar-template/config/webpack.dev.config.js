@@ -30,19 +30,10 @@ const resolveApp = relativePath => {
 module.exports = {
     entry: {
         app: resolveApp('src/index.js'),
-        vendor: [
-            'react',
-            'react-dom',
-            'react-router-dom',
-            'react-router',
-            'redux',
-            'react-redux',
-            'redux-thunk',
-        ],
     },
 
     output: {
-        filename: '[name].[chunkhash].js',
+        filename: '[name].[hash].js',
         path: resolveApp('build'),
         publicPath: '/',
     },
@@ -103,16 +94,7 @@ module.exports = {
             },
             // file-loader
             {
-                exclude: [
-                    /\.html$/,
-                    /\.(js|jsx)$/,
-                    /\.css$/,
-                    /\.json$/,
-                    /\.bmp$/,
-                    /\.gif$/,
-                    /\.jpe?g$/,
-                    /\.png$/,
-                ],
+                exclude: [/\.(js|jsx)$/, /\.html$/, /\.less$/, /\.css$/, /\.json$/],
                 loader: require.resolve('file-loader'),
                 options: {
                     name: 'static/media/[name].[hash:8].[ext]',
@@ -141,17 +123,7 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: '[name].[chunkhash].js',
-            minChunks: (module) => {
-                // this assumes your vendor imports exist in the node_modules directory
-                return module.context && module.context.includes('node_modules');
-            },
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest',
-        }),
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             inject: true,
             template: resolveApp('src/index.html'),

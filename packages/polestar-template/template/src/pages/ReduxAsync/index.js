@@ -36,7 +36,7 @@ class ReduxAsyncPage extends Component {
         try {
             await onFetchPosts(selectedReddit);
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
     }
 

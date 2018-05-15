@@ -30,7 +30,7 @@ export const postsByReddit = (state = { }, action) => {
     switch (action.type) {
         case POSTS_PENDING:
         case POSTS_SUCCESS:
-            console.log('POSTS_SUCCESS', action);
+            // console.log('POSTS_SUCCESS', action);
             return {
                 ...state,
                 [action.reddit]: posts(state[action.reddit], action),

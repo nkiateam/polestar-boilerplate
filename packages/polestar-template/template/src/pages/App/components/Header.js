@@ -4,6 +4,8 @@ import { Button, MegaMenu } from 'polestar-ui-kit';
 
 import withAppConsumer from '../contexts/withAppConsumer';
 import menuItems from './menuItems';
+import LeftContent1 from '../leftsides/LeftContent1';
+import LeftContent2 from '../leftsides/LeftContent2';
 
 class Header extends React.Component {
     // static propTypes = {
@@ -15,6 +17,25 @@ class Header extends React.Component {
     // }
 
     onMenuClick = (e, item, itemPaths) => {
+        if (item.path === '/home') {
+            this.props.appValue.setLeftside({
+                content: LeftContent1,
+            });
+        } else if (item.path === '/sample') {
+            this.props.appValue.setLeftside({
+                content: LeftContent2,
+            });
+        } else if (item.path === '/redux') {
+            this.props.appValue.setLeftside({
+                collapse: true,
+                content: LeftContent1,
+            });
+        } else if (item.path === '/redux-async') {
+            this.props.appValue.setLeftside({
+                hidden: true,
+            });
+        }
+
         this.props.appValue.setBreadcrumbRoutes(itemPaths);
     }
 

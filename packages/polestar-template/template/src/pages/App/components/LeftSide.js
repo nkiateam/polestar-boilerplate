@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
 
+import withAppConsumer from '../contexts/withAppConsumer';
+
 class LeftSide extends Component {
+
     render() {
         console.log('LeftSide Render');
+        const Content = this.props.appValue.leftside.content;// ? this.props.appValue.leftside.content : null;
         return (
-            <div>
-                Start<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />
-                LeftSide<br />LeftSide<br />LeftSide<br />LeftSide<br />End<br />
-            </div>
+            <Content />
         );
     }
 }
 
-export default LeftSide;
+export default withAppConsumer(LeftSide);

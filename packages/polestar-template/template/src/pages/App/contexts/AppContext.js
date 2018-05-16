@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 
-const Context = React.createContext();
+import LeftContent1 from '../leftsides/LeftContent1';
 
+const Context = React.createContext();
 const { Provider, Consumer: AppConsumer } = Context;
 
 class AppProvider extends Component {
     state = {
         breadcrumbRoutes: [{ label: 'Home', path: '/home' }],
+        leftside: { collapse: false, hidden: false, content: LeftContent1 },
     }
 
     actions = {
         setBreadcrumbRoutes: (breadcrumbRoutes) => {
             this.setState({
                 breadcrumbRoutes,
+            });
+        },
+        setLeftside: (leftside) => {
+            this.setState({
+                leftside,
             });
         },
     }

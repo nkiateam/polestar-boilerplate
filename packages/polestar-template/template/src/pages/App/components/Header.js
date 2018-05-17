@@ -15,6 +15,19 @@ class Header extends React.Component {
     // constructor(props) {
     //     super(props);
     // }
+    componentDidUpdate(/* prevProps, prevState, snapshot */) {
+        if (!this.props.appValue.leftside.hidden) {
+            this.props.layoutRef.current.showLeft(true, () => {
+                if (!this.props.appValue.leftside.collapse) {
+                    this.props.layoutRef.current.expandLeft();
+                } else {
+                    this.props.layoutRef.current.expandLeft(false);
+                }
+            });
+        } else {
+            this.props.layoutRef.current.showLeft(false);
+        }
+    }
 
     onMenuClick = (e, item, itemPaths) => {
         if (item.path === '/home') {

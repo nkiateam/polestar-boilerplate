@@ -38,7 +38,7 @@ class App extends Component {
                 <AppProvider>
                     <Layout
                         ref={this.layoutRef}
-                        header={<Header />}
+                        header={<Header layoutRef={this.layoutRef} />}
                         breadcrumb={<BreadcrumbContainer />}
                         footer={<Footer />}
                         leftside={{

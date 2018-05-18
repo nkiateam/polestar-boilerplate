@@ -229,7 +229,7 @@ function run(appPath, appName, originalDirectory, useYarn) {
                               'webpack@3.12.0', 'webpack-dev-server@2.11.2',
                               'html-loader', 'json-loader', 'url-loader', 'file-loader',
                               'style-loader', 'css-loader', 'postcss-flexbugs-fixes', 'postcss-loader', 'autoprefixer',
-                              'less', 'less-loader',
+                              'less@2.7.3', 'less-loader',
                               'html-webpack-plugin', 'extract-text-webpack-plugin',
                               'eslint', 'eslint-plugin-react', 'eslint-plugin-import', 'eslint-plugin-jsx-a11y', 
                               'eslint-loader', 'eslint-config-airbnb'];

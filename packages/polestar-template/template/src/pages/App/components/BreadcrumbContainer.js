@@ -21,7 +21,7 @@ class BreadcrumbContainer extends Component {
     // }
 
     render() {
-        console.log('BreadcrumbContainer Render');
+        // console.log('BreadcrumbContainer Render');
         return (
             <div className="ps-layout-breadcrumb-container">
                 {/* <AppConsumer>

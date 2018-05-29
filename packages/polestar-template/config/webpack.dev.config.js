@@ -136,5 +136,17 @@ module.exports = {
         port,
         contentBase: resolveApp(''),
         historyApiFallback: true,
+        proxy: {
+            // '**': 'http://localhost:8080',
+            // '/api': 'http://localhost:8080',
+            '/api': {
+                target: 'http://localhost:8080',
+                secure: false,
+            },
+            // '/notSend': {
+            //     target: 'http://localhost:8080',
+            //     pathRewrite: { '^/notSend': '' },
+            // },
+        },
     },
 };

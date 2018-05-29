@@ -1,6 +1,6 @@
 import Sub1 from 'pages/Sample/subpages/Sub1';
 import Sub2 from 'pages/Sample/subpages/Sub2';
-import Sub2_1 from 'pages/Sample/subpages/Sub2_1';
+import Sub2u1 from 'pages/Sample/subpages/Sub2u1';
 
 const routes = [
     {
@@ -13,7 +13,7 @@ const routes = [
         routes: [
             {
                 path: '/sample/sub2/sub2_1',
-                component: Sub2_1,
+                component: Sub2u1,
             },
         ],
     },

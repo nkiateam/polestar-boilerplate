@@ -172,8 +172,10 @@ module.exports = {
             compress: {
                 warnings: false,
                 comparisons: false,
-                // unused: true,
+                unused: true,
             },
+            // mangle: false, // 난독화
+            // beautify: true, // 가독성
             output: {
                 comments: false,
             },

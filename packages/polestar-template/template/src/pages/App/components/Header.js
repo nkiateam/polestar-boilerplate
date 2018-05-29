@@ -53,7 +53,7 @@ class Header extends React.Component {
     }
 
     render() {
-        console.log('Header Render');
+        // console.log('Header Render');
         // const { items, ...others } = this.props;
         return (
             <div className="ps-layout-navbar">
